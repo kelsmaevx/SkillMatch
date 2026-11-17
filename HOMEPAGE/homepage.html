@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillMatch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background Vector Graphics -->
+  <svg class="bg-graphics" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
+        <stop offset="0%" stop-color="#FFD17A" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#FFD17A" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="glow2" cx="85%" cy="80%" r="60%">
+        <stop offset="0%" stop-color="#220716" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="#220716" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="url(#glow1)" />
+    <rect width="1440" height="900" fill="url(#glow2)" />
+    <circle cx="1160" cy="450" r="340" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+    <circle cx="1160" cy="450" r="460" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2" />
+    <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
+  </svg>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <!-- Uses "SkillMatch Logo with Name.png" from your repo -->
+      <div class="logo-wrap" id="logoContainer" title="Click to change logo">
+        <img id="headerLogoImg" src="SkillMatch Logo with Name.png" alt="SkillMatch Logo" crossorigin="anonymous">
+      </div>
+      <input type="file" id="logoFileInput" accept="image/*" />
+    </div>
+
+    <nav>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#find-matches">Find Matches</a>
+      <a href="#about-us">About Us</a>
+    </nav>
+
+    <div class="login-status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>No Log In Needed</span>
+    </div>
+  </header>
+
+  <!-- Main Hero Content -->
+  <main class="hero">
+    <div class="hero-left">
+      <h1>
+        SkillMatch: A Skill-<br />
+        Based Opportunity<br />
+        Matching and<br />
+        Recommendation<br />
+        System
+      </h1>
+      <p>Turn what you know into where you can go.</p>
+      <a href="#find-matches" class="cta-btn">
+        Start SkillMatching
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Preview Match Cards -->
+    <div class="hero-right">
+      <!-- Card 1: 41% Match -->
+      <div class="match-card card-top">
+        <div class="ring-box">
+          <svg viewBox="0 0 72 72">
+            <circle class="ring-bg" cx="36" cy="36" r="29"></circle>
+            <circle class="ring-fill" cx="36" cy="36" r="29" stroke="#FBBF24" stroke-dasharray="182.2" stroke-dashoffset="107.5"></circle>
+          </svg>
+          <span class="ring-text">41%</span>
+        </div>
+        <div class="card-info">
+          <span class="match-label">41% Match</span>
+          <span class="job-title">Help Desk Technician</span>
+        </div>
+      </div>
+
+      <!-- Card 2: 94% Match -->
+      <div class="match-card card-middle">
+        <div class="ring-box">
+          <svg viewBox="0 0 72 72">
+            <circle class="ring-bg" cx="36" cy="36" r="29"></circle>
+            <circle class="ring-fill" cx="36" cy="36" r="29" stroke="#4ADE80" stroke-dasharray="182.2" stroke-dashoffset="10.9"></circle>
+          </svg>
+          <span class="ring-text">94%</span>
+        </div>
+        <div class="card-info">
+          <span class="match-label">94% Match</span>
+          <span class="job-title">Java Software Developer</span>
+        </div>
+      </div>
+
+      <!-- Card 3: 70% Match -->
+      <div class="match-card card-bottom">
+        <div class="ring-box">
+          <svg viewBox="0 0 72 72">
+            <circle class="ring-bg" cx="36" cy="36" r="29"></circle>
+            <circle class="ring-fill" cx="36" cy="36" r="29" stroke="#38BDF8" stroke-dasharray="182.2" stroke-dashoffset="54.7"></circle>
+          </svg>
+          <span class="ring-text">70%</span>
+        </div>
+        <div class="card-info">
+          <span class="match-label">70% Match</span>
+          <span class="job-title">Full Stack Development</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const logoContainer = document.getElementById('logoContainer');
+    const headerLogoImg = document.getElementById('headerLogoImg');
+    const logoFileInput = document.getElementById('logoFileInput');
+
+    // Automatically remove white background on initial load
+    window.addEventListener('DOMContentLoaded', () => {
+      removeWhiteBackground(headerLogoImg.src, (cleanDataUrl) => {
+        headerLogoImg.src = cleanDataUrl;
+      });
+    });
+
+    logoContainer.addEventListener('click', () => {
+      logoFileInput.click();
+    });
+
+    logoFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        removeWhiteBackground(event.target.result, (cleanDataUrl) => {
+          headerLogoImg.src = cleanDataUrl;
+        });
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function removeWhiteBackground(imageSrc, callback) {
+      const img = new Image();
+      img.crossOrigin = "Anonymous";
+      img.onload = function () {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const pixels = imgData.data;
+
+        for (let i = 0; i < pixels.length; i += 4) {
+          if (pixels[i] > 235 && pixels[i+1] > 235 && pixels[i+2] > 235) {
+            pixels[i + 3] = 0;
+          }
+        }
+        ctx.putImageData(imgData, 0, 0);
+        callback(canvas.toDataURL('image/png'));
+      };
+      img.src = imageSrc;
+    }
+  </script>
+
+</body>
+</html>
