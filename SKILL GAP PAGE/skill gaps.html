@@ -1,249 +1,147 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillMatch - Skill Gaps</title>
+  <link rel="stylesheet" href="skill-gaps.css" />
+</head>
+<body>
 
-body {
-  min-height: 100vh;
-  background: linear-gradient(125deg, #F5AA4C 0%, #DF6C51 45%, #8D3248 78%, #3B1228 100%);
-  color: #ffffff;
-  overflow-x: hidden;
-  position: relative;
-}
+  <!-- Background Vector Graphics -->
+  <svg class="bg-graphics" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
+        <stop offset="0%" stop-color="#FFD17A" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#FFD17A" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="glow2" cx="85%" cy="80%" r="60%">
+        <stop offset="0%" stop-color="#220716" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="#220716" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="url(#glow1)" />
+    <rect width="1440" height="900" fill="url(#glow2)" />
+    <circle cx="1160" cy="450" r="340" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+    <circle cx="1160" cy="450" r="460" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2" />
+    <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
+  </svg>
 
-.bg-graphics {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="brand">
+      <div class="logo-wrap" id="logoContainer">
+        <img id="headerLogoImg" src="SkillMatch Logo with Name.png" alt="SkillMatch Logo" crossorigin="anonymous">
+      </div>
+    </a>
 
-header {
-  position: relative;
-  z-index: 10;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 26px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+    <nav>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="upload.html" class="active">Find Matches</a>
+      <a href="about-us.html">About Us</a>
+    </nav>
 
-.brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
+    <div class="login-status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>No Log In Needed</span>
+    </div>
+  </header>
 
-.logo-wrap {
-  height: 48px;
-  display: flex;
-  align-items: center;
-}
+  <!-- Main Skill Gaps Container -->
+  <main class="container">
+    <div class="section-heading">
+      <span class="step-badge">03</span>
+      <div>
+        <h1>Skill Gaps</h1>
+        <p>Skills missing most often across your top five opportunities.</p>
+      </div>
+    </div>
 
-.logo-wrap img {
-  height: 100%;
-  max-width: 220px;
-  object-fit: contain;
-}
+    <div class="gaps-layout">
+      <!-- Left Column: Numbered 1 to 5 Skill Gap Items -->
+      <div class="gaps-list">
+        <div class="gap-item">
+          <div class="gap-num">1</div>
+          <div class="gap-body">
+            <h3>Docker &amp; Containerization <span class="freq">(Missing in 4 of 5 matches)</span></h3>
+            <p>Build a sample multi-container Java and PostgreSQL app using Docker Compose to demonstrate deployment readiness.</p>
+          </div>
+        </div>
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 44px;
-}
+        <div class="gap-item">
+          <div class="gap-num">2</div>
+          <div class="gap-body">
+            <h3>Spring Boot Framework <span class="freq">(Missing in 3 of 5 matches)</span></h3>
+            <p>Create a RESTful API service with Spring Boot and JUnit tests to strengthen backend engineering credentials.</p>
+          </div>
+        </div>
 
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  opacity: 0.85;
-  transition: opacity 0.2s;
-  padding-bottom: 4px;
-}
+        <div class="gap-item">
+          <div class="gap-num">3</div>
+          <div class="gap-body">
+            <h3>Cloud Fundamentals (AWS / Azure) <span class="freq">(Missing in 3 of 5 matches)</span></h3>
+            <p>Complete foundational cloud practitioner labs covering IAM, compute instances, and managed databases.</p>
+          </div>
+        </div>
 
-nav a:hover,
-nav a.active {
-  opacity: 1;
-  font-weight: 700;
-  border-bottom: 2px solid #ffffff;
-}
+        <div class="gap-item">
+          <div class="gap-num">4</div>
+          <div class="gap-body">
+            <h3>CI/CD Pipelines (GitHub Actions) <span class="freq">(Missing in 2 of 5 matches)</span></h3>
+            <p>Automate unit testing and build checks inside your GitHub repositories using workflow YAML files.</p>
+          </div>
+        </div>
 
-.login-status {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
-}
+        <div class="gap-item">
+          <div class="gap-num">5</div>
+          <div class="gap-body">
+            <h3>TypeScript <span class="freq">(Missing in 2 of 5 matches)</span></h3>
+            <p>Convert an existing JavaScript frontend project to TypeScript to practice static typing and interfaces.</p>
+          </div>
+        </div>
+      </div>
 
-.login-status svg {
-  width: 22px;
-  height: 22px;
-}
+      <!-- Right Column: Summarization Box -->
+      <aside class="summary-panel">
+        <h2>Skill Gap Summary</h2>
+        <p>
+          Across your top five recommended tech opportunities, your core programming foundation is strong,
+          but modern deployment and backend tooling represent your highest-impact growth areas. Focusing first on
+          <strong>Docker</strong> and <strong>Spring Boot</strong> will immediately boost your compatibility across
+          both full-time software engineering roles and technical internships.
+        </p>
 
-.container {
-  position: relative;
-  z-index: 10;
-  max-width: 1220px;
-  margin: 0 auto;
-  padding: 24px 50px 70px;
-}
+        <a href="matches.html" class="back-btn">Go Back to Your Matches &larr;</a>
+      </aside>
+    </div>
+  </main>
 
-.section-heading {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 32px;
-}
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const img = document.getElementById('headerLogoImg');
+      const temp = new Image();
+      temp.crossOrigin = "Anonymous";
+      temp.onload = function () {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = temp.width;
+        canvas.height = temp.height;
+        ctx.drawImage(temp, 0, 0);
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < imgData.data.length; i += 4) {
+          if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
+            imgData.data[i + 3] = 0;
+          }
+        }
+        ctx.putImageData(imgData, 0, 0);
+        img.src = canvas.toDataURL('image/png');
+      };
+      temp.src = img.src;
+    });
+  </script>
 
-.step-badge {
-  background: rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  font-size: 24px;
-  font-weight: 800;
-  padding: 12px 18px;
-  border-radius: 16px;
-}
-
-.section-heading h1 {
-  font-size: 36px;
-  font-weight: 800;
-}
-
-.section-heading p {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.gaps-layout {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 28px;
-  align-items: start;
-}
-
-.gaps-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.gap-item {
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 18px;
-  padding: 20px 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  box-shadow: 0 10px 24px rgba(24, 6, 16, 0.18);
-}
-
-.gap-num {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background-color: #2B0D1E;
-  color: #FDE68A;
-  font-size: 18px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.gap-body h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.gap-body .freq {
-  font-size: 13px;
-  font-weight: 500;
-  color: #FDE68A;
-}
-
-.gap-body p {
-  font-size: 14px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.summary-panel {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  border-radius: 22px;
-  padding: 32px 28px;
-  box-shadow: 0 14px 32px rgba(24, 6, 16, 0.22);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 28px;
-}
-
-.summary-panel h2 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.summary-panel p {
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.94);
-}
-
-.back-btn {
-  display: inline-block;
-  text-align: center;
-  background-color: #2B0D1E;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 14px 24px;
-  border-radius: 50px;
-  transition: background-color 0.2s, transform 0.2s;
-}
-
-.back-btn:hover {
-  background-color: #3e142c;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 960px) {
-  .gaps-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  header {
-    padding: 20px 24px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  nav {
-    gap: 20px;
-    order: 3;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .container {
-    padding: 24px;
-  }
-}
+</body>
+</html>
