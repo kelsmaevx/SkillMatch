@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillMatch - About Us</title>
+  <link rel="stylesheet" href="about-us.css" />
+</head>
+<body>
+
+  <!-- Background Vector Graphics -->
+  <svg class="bg-graphics" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
+        <stop offset="0%" stop-color="#FFD17A" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#FFD17A" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="glow2" cx="85%" cy="80%" r="60%">
+        <stop offset="0%" stop-color="#220716" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="#220716" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="url(#glow1)" />
+    <rect width="1440" height="900" fill="url(#glow2)" />
+    <circle cx="1160" cy="450" r="340" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+    <circle cx="1160" cy="450" r="460" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2" />
+    <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
+  </svg>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="brand">
+      <div class="logo-wrap" id="logoContainer">
+        <img id="headerLogoImg" src="SkillMatch Logo with Name.png" alt="SkillMatch Logo" crossorigin="anonymous">
+      </div>
+    </a>
+
+    <nav>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="upload.html">Find Matches</a>
+      <a href="about-us.html" class="active">About Us</a>
+    </nav>
+
+    <div class="login-status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>No Log In Needed</span>
+    </div>
+  </header>
+
+  <!-- Main About Us Container -->
+  <main class="container">
+    <!-- About the Website -->
+    <section class="about-card">
+      <h1>About the Website</h1>
+      <p>
+        SkillMatch is an AI-powered system that scans a user's DOCX or PDF resume to identify skills, education, and
+        experience, then matches them with suitable tech-related jobs and internships. It ranks opportunities based on
+        compatibility, explains each recommendation, identifies skill gaps, and suggests relevant training to help users
+        improve their qualifications.
+      </p>
+      <p>
+        It supports <strong>SDG 4 (Quality Education)</strong> by identifying skill gaps and recommending learning steps,
+        <strong>SDG 8 (Decent Work and Economic Growth)</strong> by helping users find suitable employment, and
+        <strong>SDG 10 (Reduced Inequalities)</strong> by narrowing the information gap between individuals and
+        available opportunities.
+      </p>
+    </section>
+
+    <!-- Bottom Grid: Meet the Team & Contact Us -->
+    <div class="bottom-grid">
+      <!-- Meet the Team -->
+      <section class="team-section">
+        <h2>Meet the Team</h2>
+        <div class="team-grid">
+          <div class="member-card">
+            <img src="team/alfajaro.jpg" alt="Alfajaro, Ghan Vincent T." onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="avatar-fallback">GV</div>
+            <h3>Alfajaro, Ghan Vincent T.</h3>
+          </div>
+
+          <div class="member-card">
+            <img src="team/cabral.jpg" alt="Cabral, Will Geoff D." onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="avatar-fallback">WG</div>
+            <h3>Cabral, Will Geoff D.</h3>
+          </div>
+
+          <div class="member-card">
+            <img src="team/hernandez.jpg" alt="Hernandez, Kelsey Mae M." onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="avatar-fallback">KM</div>
+            <h3>Hernandez, Kelsey Mae M.</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feedback & Contact Us -->
+      <section class="contact-section">
+        <h2>Give us a Feedback and Contact Us!</h2>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-name">Alfajaro, Ghan Vincent T.</span>
+            <a href="mailto:25-08957@g.batstate-u.edu.ph">25-08957@g.batstate-u.edu.ph</a>
+          </li>
+          <li>
+            <span class="contact-name">Cabral, Will Geoff D.</span>
+            <a href="mailto:25-06477@g.batstate-u.edu.ph">25-06477@g.batstate-u.edu.ph</a>
+          </li>
+          <li>
+            <span class="contact-name">Hernandez, Kelsey Mae M.</span>
+            <a href="mailto:25-07961@g.batstate-u.edu.ph">25-07961@g.batstate-u.edu.ph</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const img = document.getElementById('headerLogoImg');
+      const temp = new Image();
+      temp.crossOrigin = "Anonymous";
+      temp.onload = function () {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = temp.width;
+        canvas.height = temp.height;
+        ctx.drawImage(temp, 0, 0);
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < imgData.data.length; i += 4) {
+          if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
+            imgData.data[i + 3] = 0;
+          }
+        }
+        ctx.putImageData(imgData, 0, 0);
+        img.src = canvas.toDataURL('image/png');
+      };
+      temp.src = img.src;
+    });
+  </script>
+
+</body>
+</html>
