@@ -27,7 +27,7 @@ public class MatchingEngine implements Matcher {
         double edu = have >= req ? 1 : (double) have / req;
 
         Set<String> interests = p.interestSet();
-        double interest = 0.5;                                   // neutral if the user listed none
+        double interest = 0.5;
         if (!interests.isEmpty()) {
             Set<String> tags = o.getTags().stream().map(Profile::norm).collect(Collectors.toSet());
             long hits = interests.stream().filter(tags::contains).count();
