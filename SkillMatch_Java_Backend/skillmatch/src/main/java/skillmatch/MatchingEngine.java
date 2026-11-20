@@ -29,12 +29,14 @@ public class MatchingEngine implements Matcher {
         List<String> missing = gap.missing(p, o);
 
         // Calculate the skills score
+        
         double skillsScore = 1;
         if (o.getRequiredSkills().size() > 0) {
             skillsScore = (double) matched.size() / o.getRequiredSkills().size();
         }
 
         // Calculate the experience score
+        
         double experienceScore = 1;
         double requiredExperience = o.requiredExperience();
 
@@ -46,6 +48,7 @@ public class MatchingEngine implements Matcher {
         }
 
         // Calculate the education score
+        
         int userEducation = educationValue(p.getEducation());
         int requiredEducation = educationValue(o.getMinEducation());
         double educationScore = (double) userEducation / requiredEducation;
@@ -55,6 +58,7 @@ public class MatchingEngine implements Matcher {
         }
 
         // Calculate the interests score
+        
         double interestScore = 0.5;
         Set<String> userInterests = p.interestSet();
 
@@ -79,6 +83,7 @@ public class MatchingEngine implements Matcher {
         }
 
         // Check the user's location and preferred job type
+        
         boolean locationMatch = Profile.norm(p.getLocation()).isEmpty()
                 || Profile.norm(o.getLocation()).equals("remote")
                 || Profile.norm(p.getLocation()).equals(Profile.norm(o.getLocation()));
@@ -95,6 +100,7 @@ public class MatchingEngine implements Matcher {
         }
 
         // Get the final score
+        
         double finalScore = (skillsScore * SKILL_WEIGHT)
                 + (experienceScore * EXPERIENCE_WEIGHT)
                 + (educationScore * EDUCATION_WEIGHT)
@@ -124,6 +130,7 @@ public class MatchingEngine implements Matcher {
     }
 
     // Changes the education level into a number for comparison
+    
     private int educationValue(String education) {
         String value = Profile.norm(education);
 
