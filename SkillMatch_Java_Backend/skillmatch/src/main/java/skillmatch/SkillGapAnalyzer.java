@@ -7,6 +7,7 @@ import java.util.Set;
 public class SkillGapAnalyzer {
 
     // Gets the skills that the user already has
+    
     public List<String> matched(Profile p, Opportunity o) {
         List<String> result = new ArrayList<>();
         Set<String> userSkills = p.skillSet();
@@ -21,6 +22,7 @@ public class SkillGapAnalyzer {
     }
 
     // Gets the skills that the user still needs
+    
     public List<String> missing(Profile p, Opportunity o) {
         List<String> result = new ArrayList<>();
         Set<String> userSkills = p.skillSet();
