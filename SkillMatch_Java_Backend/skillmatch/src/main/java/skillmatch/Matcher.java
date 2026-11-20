@@ -9,6 +9,7 @@ public interface Matcher {
     MatchResult match(Profile p, Opportunity o);
 
     // Sorts the opportunities from highest score to lowest score
+    
     default List<MatchResult> rank(Profile p, List<Opportunity> all) {
         List<MatchResult> results = new ArrayList<>();
 
