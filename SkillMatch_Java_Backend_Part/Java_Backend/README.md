@@ -26,8 +26,6 @@ The Java code calculates the score. The recommendation engine then adds an expla
 
 ## Needed classes from the main project
 
-These seven files are part of the existing `skillmatch` Java package. They use supporting classes that are already in the main project:
-
 - `Profile.java`
 - `Opportunity.java`
 - `OpportunityRepository.java`
