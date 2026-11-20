@@ -3,7 +3,7 @@ package skillmatch;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/** Weighted scoring: skills 40, experience 20, education 15, interests 10, location/preferences 15. */
+// Weighted scoring: skills 40, experience 20, education 15, interests 10, location/preferences 15.
 public class MatchingEngine implements Matcher {
     private static final double W_SKILL = 0.40, W_EXP = 0.20, W_EDU = 0.15, W_INT = 0.10, W_PREF = 0.15;
     private static final Map<String, Integer> EDU =
