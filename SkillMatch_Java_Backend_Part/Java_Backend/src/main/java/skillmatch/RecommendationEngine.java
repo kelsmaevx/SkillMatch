@@ -3,10 +3,8 @@ package skillmatch;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Recommendation engine: ranks opportunities with a Matcher, then adds a plain-language explanation
- * and training steps. Works fully offline; AiService can later replace the text with richer Claude output.
- */
+//Recommendation engine: ranks opportunities with a Matcher, then adds an explanation
+
 public class RecommendationEngine implements Recommender {
     private final Matcher matcher;
     private final OpportunityRepository repo;
