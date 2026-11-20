@@ -33,4 +33,3 @@ The score uses the weights from the project:
 - Interests - 10%
 - Location and preferences - 15%
 
-The score is calculated by Java. It does not need the Claude API.
