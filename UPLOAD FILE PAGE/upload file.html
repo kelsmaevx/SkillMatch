@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillMatch - Build Your Match Profile</title>
+  <link rel="stylesheet" href="upload.css" />
+</head>
+<body>
+
+  <!-- Background Vector Graphics -->
+  <svg class="bg-graphics" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
+        <stop offset="0%" stop-color="#FFD17A" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#FFD17A" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="glow2" cx="85%" cy="80%" r="60%">
+        <stop offset="0%" stop-color="#220716" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="#220716" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="url(#glow1)" />
+    <rect width="1440" height="900" fill="url(#glow2)" />
+    <circle cx="1160" cy="450" r="340" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+    <circle cx="1160" cy="450" r="460" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2" />
+    <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
+  </svg>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="brand">
+      <div class="logo-wrap" id="logoContainer">
+        <img id="headerLogoImg" src="SkillMatch Logo with Name.png" alt="SkillMatch Logo" crossorigin="anonymous">
+      </div>
+    </a>
+
+    <nav>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="upload.html" class="active">Find Matches</a>
+      <a href="about-us.html">About Us</a>
+    </nav>
+
+    <div class="login-status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>No Log In Needed</span>
+    </div>
+  </header>
+
+  <!-- Step 01 Upload Container (Pages 3 & 4) -->
+  <main class="container" id="uploadSection">
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-badge">01</span>
+        <div>
+          <h1>Build your match profile</h1>
+          <p>Upload your updated Resume/Curriculum Vitae and select your location.</p>
+        </div>
+      </div>
+
+      <!-- Location Dropdown -->
+      <div class="location-group">
+        <label for="locationSelect">Location:</label>
+        <select id="locationSelect">
+          <option value="">Select Location...</option>
+          <option value="Any">Any Location</option>
+          <option value="Remote">Remote</option>
+          <option value="Manila">Manila</option>
+          <option value="Batangas">Batangas</option>
+          <option value="Cebu">Cebu</option>
+        </select>
+        <!-- Page 4 Error Message -->
+        <span class="error-msg" id="errorMsg">*Insufficient information. Try again.</span>
+      </div>
+
+      <!-- Dashed Gradient Upload Box -->
+      <div class="dropzone-wrapper" id="dropzone">
+        <svg class="dashed-border-svg" viewBox="0 0 700 240" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#F5AA4C" />
+              <stop offset="50%" stop-color="#DF6C51" />
+              <stop offset="100%" stop-color="#7B2843" />
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="692" height="232" rx="22" ry="22" fill="none" stroke="url(#dashGrad)" stroke-width="5" stroke-dasharray="14 10" />
+        </svg>
+
+        <div class="dropzone-content">
+          <div class="file-icons">
+            <!-- PDF Icon -->
+            <div class="doc-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>PDF</span>
+            </div>
+            <!-- DOCX Icon -->
+            <div class="doc-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>.DOC</span>
+            </div>
+          </div>
+
+          <p class="upload-label" id="fileNameDisplay">Upload PDF/Docx</p>
+          <input type="file" id="resumeInput" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="submit-btn" id="analyzeBtn">Find Matches</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Page 5 Loading Screen -->
+  <section class="loading-overlay" id="loadingSection">
+    <div class="loader-box">
+      <div class="spinner-ring"></div>
+      <h2>SkillMatch is reading your file<span class="dots">....</span></h2>
+    </div>
+  </section>
+
+  <script>
+    // Strip white background from header logo
+    window.addEventListener('DOMContentLoaded', () => {
+      const img = document.getElementById('headerLogoImg');
+      const temp = new Image();
+      temp.crossOrigin = "Anonymous";
+      temp.onload = function () {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = temp.width;
+        canvas.height = temp.height;
+        ctx.drawImage(temp, 0, 0);
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < imgData.data.length; i += 4) {
+          if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
+            imgData.data[i + 3] = 0;
+          }
+        }
+        ctx.putImageData(imgData, 0, 0);
+        img.src = canvas.toDataURL('image/png');
+      };
+      temp.src = img.src;
+    });
+
+    const dropzone = document.getElementById('dropzone');
+    const resumeInput = document.getElementById('resumeInput');
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+    const locationSelect = document.getElementById('locationSelect');
+    const errorMsg = document.getElementById('errorMsg');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    const uploadSection = document.getElementById('uploadSection');
+    const loadingSection = document.getElementById('loadingSection');
+
+    dropzone.addEventListener('click', () => resumeInput.click());
+
+    resumeInput.addEventListener('change', () => {
+      if (resumeInput.files.length > 0) {
+        fileNameDisplay.textContent = resumeInput.files[0].name;
+        errorMsg.style.display = 'none';
+      }
+    });
+
+    analyzeBtn.addEventListener('click', () => {
+      // Trigger Page 4 validation state if location or file is missing
+      if (!locationSelect.value || resumeInput.files.length === 0) {
+        errorMsg.style.display = 'inline-block';
+        return;
+      }
+
+      // Trigger Page 5 reading file state, then redirect to Page 6
+      errorMsg.style.display = 'none';
+      uploadSection.style.display = 'none';
+      loadingSection.style.display = 'flex';
+
+      setTimeout(() => {
+        window.location.href = 'matches.html';
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>

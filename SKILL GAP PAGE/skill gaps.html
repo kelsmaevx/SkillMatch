@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillMatch - Skill Gaps</title>
+  <link rel="stylesheet" href="skill-gaps.css" />
+</head>
+<body>
+
+  <!-- Background Vector Graphics -->
+  <svg class="bg-graphics" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
+        <stop offset="0%" stop-color="#FFD17A" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#FFD17A" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="glow2" cx="85%" cy="80%" r="60%">
+        <stop offset="0%" stop-color="#220716" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="#220716" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="url(#glow1)" />
+    <rect width="1440" height="900" fill="url(#glow2)" />
+    <circle cx="1160" cy="450" r="340" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+    <circle cx="1160" cy="450" r="460" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2" />
+    <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
+  </svg>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="brand">
+      <div class="logo-wrap" id="logoContainer">
+        <img id="headerLogoImg" src="SkillMatch Logo with Name.png" alt="SkillMatch Logo" crossorigin="anonymous">
+      </div>
+    </a>
+
+    <nav>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="upload.html" class="active">Find Matches</a>
+      <a href="about-us.html">About Us</a>
+    </nav>
+
+    <div class="login-status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>No Log In Needed</span>
+    </div>
+  </header>
+
+  <!-- Main Skill Gaps Container -->
+  <main class="container">
+    <div class="section-heading">
+      <span class="step-badge">03</span>
+      <div>
+        <h1>Skill Gaps</h1>
+        <p>Skills missing most often across your top five opportunities.</p>
+      </div>
+    </div>
+
+    <div class="gaps-layout">
+      <!-- Left Column: Numbered 1 to 5 Skill Gap Items -->
+      <div class="gaps-list">
+        <div class="gap-item">
+          <div class="gap-num">1</div>
+          <div class="gap-body">
+            <h3>Docker &amp; Containerization <span class="freq">(Missing in 4 of 5 matches)</span></h3>
+            <p>Build a sample multi-container Java and PostgreSQL app using Docker Compose to demonstrate deployment readiness.</p>
+          </div>
+        </div>
+
+        <div class="gap-item">
+          <div class="gap-num">2</div>
+          <div class="gap-body">
+            <h3>Spring Boot Framework <span class="freq">(Missing in 3 of 5 matches)</span></h3>
+            <p>Create a RESTful API service with Spring Boot and JUnit tests to strengthen backend engineering credentials.</p>
+          </div>
+        </div>
+
+        <div class="gap-item">
+          <div class="gap-num">3</div>
+          <div class="gap-body">
+            <h3>Cloud Fundamentals (AWS / Azure) <span class="freq">(Missing in 3 of 5 matches)</span></h3>
+            <p>Complete foundational cloud practitioner labs covering IAM, compute instances, and managed databases.</p>
+          </div>
+        </div>
+
+        <div class="gap-item">
+          <div class="gap-num">4</div>
+          <div class="gap-body">
+            <h3>CI/CD Pipelines (GitHub Actions) <span class="freq">(Missing in 2 of 5 matches)</span></h3>
+            <p>Automate unit testing and build checks inside your GitHub repositories using workflow YAML files.</p>
+          </div>
+        </div>
+
+        <div class="gap-item">
+          <div class="gap-num">5</div>
+          <div class="gap-body">
+            <h3>TypeScript <span class="freq">(Missing in 2 of 5 matches)</span></h3>
+            <p>Convert an existing JavaScript frontend project to TypeScript to practice static typing and interfaces.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Summarization Box -->
+      <aside class="summary-panel">
+        <h2>Skill Gap Summary</h2>
+        <p>
+          Across your top five recommended tech opportunities, your core programming foundation is strong,
+          but modern deployment and backend tooling represent your highest-impact growth areas. Focusing first on
+          <strong>Docker</strong> and <strong>Spring Boot</strong> will immediately boost your compatibility across
+          both full-time software engineering roles and technical internships.
+        </p>
+
+        <a href="matches.html" class="back-btn">Go Back to Your Matches &larr;</a>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const img = document.getElementById('headerLogoImg');
+      const temp = new Image();
+      temp.crossOrigin = "Anonymous";
+      temp.onload = function () {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = temp.width;
+        canvas.height = temp.height;
+        ctx.drawImage(temp, 0, 0);
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < imgData.data.length; i += 4) {
+          if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
+            imgData.data[i + 3] = 0;
+          }
+        }
+        ctx.putImageData(imgData, 0, 0);
+        img.src = canvas.toDataURL('image/png');
+      };
+      temp.src = img.src;
+    });
+  </script>
+
+</body>
+</html>

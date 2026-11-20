@@ -1,0 +1,303 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(125deg, #F5AA4C 0%, #DF6C51 45%, #8D3248 78%, #3B1228 100%);
+  color: #ffffff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle background wave graphics */
+.bg-graphics {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Navigation Bar */
+header {
+  position: relative;
+  z-index: 10;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 26px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.logo-wrap {
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-wrap img {
+  height: 100%;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.92;
+  transition: opacity 0.2s;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+.login-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.login-status svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  z-index: 10;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 45px 50px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: calc(100vh - 96px);
+}
+
+.hero-left {
+  max-width: 560px;
+}
+
+.hero-left h1 {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+  margin-bottom: 22px;
+  color: #ffffff;
+}
+
+.hero-left p {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 36px;
+  line-height: 1.5;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #2B0D1E;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(28, 8, 19, 0.35);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.cta-btn:hover {
+  background-color: #3a1228;
+  transform: translateY(-2px);
+}
+
+/* Right Side Staggered Match Cards */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 490px;
+}
+
+.match-card {
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 20px;
+  padding: 20px 26px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: 410px;
+  box-shadow: 0 14px 32px rgba(24, 6, 16, 0.22);
+  transition: transform 0.25s ease;
+}
+
+.match-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Stagger alignment matching Page 1 */
+.card-top {
+  align-self: flex-end;
+}
+
+.card-middle {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.card-bottom {
+  align-self: flex-end;
+}
+
+/* Circular Match Ring */
+.ring-box {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+}
+
+.ring-box svg {
+  width: 68px;
+  height: 68px;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 6.5;
+}
+
+.ring-fill {
+  fill: none;
+  stroke-width: 6.5;
+  stroke-linecap: round;
+}
+
+.ring-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.match-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #FDE68A;
+}
+
+.card-middle .match-label {
+  color: #86EFAC;
+}
+
+.job-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+#logoFileInput {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  .hero-right {
+    width: 100%;
+    max-width: 460px;
+    margin-top: 20px;
+  }
+
+  .match-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 20px 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  nav {
+    gap: 20px;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero {
+    padding: 24px;
+  }
+
+  .hero-left h1 {
+    font-size: 38px;
+  }
+}
