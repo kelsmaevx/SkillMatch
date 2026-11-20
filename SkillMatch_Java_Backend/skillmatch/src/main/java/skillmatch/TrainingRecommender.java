@@ -33,6 +33,7 @@ public class TrainingRecommender {
     }
 
     // Gives learning suggestions for missing skills
+    
     public List<String> recommend(List<String> missing) {
         List<String> suggestions = new ArrayList<>();
 
