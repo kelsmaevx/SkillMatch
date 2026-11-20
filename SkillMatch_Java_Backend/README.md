@@ -21,7 +21,6 @@ These files work with the other SkillMatch classes:
 - `CompatibilityLevel`
 - `OpportunityRepository`
 
-Keep these files in the same `skillmatch` package as the rest of the project.
 
 ## Matching score
 
