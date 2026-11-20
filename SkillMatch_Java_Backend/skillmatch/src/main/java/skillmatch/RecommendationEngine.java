@@ -21,6 +21,7 @@ public class RecommendationEngine implements Recommender {
         List<MatchResult> results = new ArrayList<>();
 
         // Only get the number of results requested
+        
         for (int i = 0; i < ranked.size() && i < limit; i++) {
             MatchResult result = ranked.get(i);
             result.explanation = describe(result);
@@ -32,6 +33,7 @@ public class RecommendationEngine implements Recommender {
     }
 
     // Makes a short explanation for the match
+    
     static String describe(MatchResult result) {
         int totalSkills = result.matched.size() + result.missing.size();
 
