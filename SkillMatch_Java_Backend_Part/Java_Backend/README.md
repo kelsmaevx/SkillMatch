@@ -22,7 +22,7 @@ The score is based on the weights used in the project:
 - Interests - 10%
 - Location and preferences - 15%
 
-The Java code calculates the score. The recommendation engine then adds an explanation and suggested learning steps.
+The Java code calculates the score. The recommendation engine then adds an explanation and suggests skill needed to learn.
 
 ## Needed classes from the main project
 
