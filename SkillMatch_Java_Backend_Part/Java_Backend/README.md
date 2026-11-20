@@ -35,10 +35,3 @@ These seven files are part of the existing `skillmatch` Java package. They use s
 
 Keep these files in the same `skillmatch` package when adding my classes back to the complete project. This ZIP is only my assigned section, so it is not meant to run by itself without the supporting classes and the rest of the project.
 
-## Where to place the files
-
-Copy the seven `.java` files into:
-
-`src/main/java/skillmatch/`
-
-Do not remove the other project classes. The backend classes need them to work with the full SkillMatch system.
