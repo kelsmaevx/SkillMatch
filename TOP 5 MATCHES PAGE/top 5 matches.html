@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillMatch - Your Matches</title>
-  <link rel="stylesheet" href="matches.css" />
+  <link rel="icon" type="image/png" href="../Images/SkillMatch%20Logo.png" />
+  <link rel="stylesheet" href="top%205%20matches.css" />
 </head>
 <body>
 
   <!-- Background Vector Graphics -->
-  <svg class="bg-graphics" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <svg class="bg-graphics" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
     <defs>
       <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
         <stop offset="0%" stop-color="#FFD17A" stop-opacity="0.35" />
@@ -29,16 +30,16 @@
 
   <!-- Header -->
   <header>
-    <a href="index.html" class="brand">
+    <a href="../HOMEPAGE/homepage.html" class="brand">
       <div class="logo-wrap" id="logoContainer">
-        <img id="headerLogoImg" src="SkillMatch Logo with Name.png" alt="SkillMatch Logo" crossorigin="anonymous">
+        <img id="headerLogoImg" src="../Images/SkillMatch%20Logo%20with%20Name.png" alt="SkillMatch Logo">
       </div>
     </a>
 
     <nav>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="upload.html" class="active">Find Matches</a>
-      <a href="about-us.html">About Us</a>
+      <a href="../HOW%20IT%20WORKS/how%20it%20works.html">How It Works</a>
+      <a href="../UPLOAD%20FILE%20PAGE/upload%20file.html" class="active">Find Matches</a>
+      <a href="../ABOUT%20US%20PAGE/about%20us.html">About Us</a>
     </nav>
 
     <div class="login-status">
@@ -71,7 +72,7 @@
           <div class="compat-label">Compatibility</div>
           <span class="status-badge strong">Strong Match</span>
         </div>
-        <a href="analysis.html" class="analysis-link">View Analysis &rarr;</a>
+        <a href="../VIEW%20ANALYSIS%20BUTTON/view%20analysis%20button.html" class="analysis-link">View Analysis &rarr;</a>
       </div>
 
       <!-- Top 2 -->
@@ -83,7 +84,7 @@
           <div class="compat-label">Compatibility</div>
           <span class="status-badge strong">Strong Match</span>
         </div>
-        <a href="analysis.html" class="analysis-link">View Analysis &rarr;</a>
+        <a href="../VIEW%20ANALYSIS%20BUTTON/view%20analysis%20button.html" class="analysis-link">View Analysis &rarr;</a>
       </div>
 
       <!-- Top 3 -->
@@ -95,7 +96,7 @@
           <div class="compat-label">Compatibility</div>
           <span class="status-badge good">Good Match</span>
         </div>
-        <a href="analysis.html" class="analysis-link">View Analysis &rarr;</a>
+        <a href="../VIEW%20ANALYSIS%20BUTTON/view%20analysis%20button.html" class="analysis-link">View Analysis &rarr;</a>
       </div>
     </div>
 
@@ -110,7 +111,7 @@
           <div class="compat-label">Compatibility</div>
           <span class="status-badge good">Good Match</span>
         </div>
-        <a href="analysis.html" class="analysis-link">View Analysis &rarr;</a>
+        <a href="../VIEW%20ANALYSIS%20BUTTON/view%20analysis%20button.html" class="analysis-link">View Analysis &rarr;</a>
       </div>
 
       <!-- Top 5 -->
@@ -122,36 +123,39 @@
           <div class="compat-label">Compatibility</div>
           <span class="status-badge good">Good Match</span>
         </div>
-        <a href="analysis.html" class="analysis-link">View Analysis &rarr;</a>
+        <a href="../VIEW%20ANALYSIS%20BUTTON/view%20analysis%20button.html" class="analysis-link">View Analysis &rarr;</a>
       </div>
     </div>
 
     <!-- Bottom Navigation Buttons -->
     <div class="bottom-actions">
-      <a href="upload.html" class="btn-secondary">&larr; Back to Uploads</a>
-      <a href="skill-gaps.html" class="btn-primary">Proceed to Skill Gaps &rarr;</a>
+      <a href="../UPLOAD%20FILE%20PAGE/upload%20file.html" class="btn-secondary">&larr; Back to Uploads</a>
+      <a href="../SKILL%20GAP%20PAGE/skill%20gaps.html" class="btn-primary">Proceed to Skill Gaps &rarr;</a>
     </div>
   </main>
 
   <script>
+    // Removes the white background from the header logo.
+    // If the browser blocks canvas access (e.g. page opened via file://), the original logo is kept.
     window.addEventListener('DOMContentLoaded', () => {
       const img = document.getElementById('headerLogoImg');
       const temp = new Image();
-      temp.crossOrigin = "Anonymous";
       temp.onload = function () {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = temp.width;
-        canvas.height = temp.height;
-        ctx.drawImage(temp, 0, 0);
-        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < imgData.data.length; i += 4) {
-          if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
-            imgData.data[i + 3] = 0;
+        try {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = temp.width;
+          canvas.height = temp.height;
+          ctx.drawImage(temp, 0, 0);
+          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < imgData.data.length; i += 4) {
+            if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
+              imgData.data[i + 3] = 0;
+            }
           }
-        }
-        ctx.putImageData(imgData, 0, 0);
-        img.src = canvas.toDataURL('image/png');
+          ctx.putImageData(imgData, 0, 0);
+          img.src = canvas.toDataURL('image/png');
+        } catch (e) { /* keep original logo */ }
       };
       temp.src = img.src;
     });
