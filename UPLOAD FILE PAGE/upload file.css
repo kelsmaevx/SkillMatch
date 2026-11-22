@@ -317,3 +317,24 @@ nav a.active {
     padding: 28px 22px;
   }
 }
+
+/* Loading dots animation */
+.dots {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  width: 0;
+  animation: dots 1.2s steps(5, end) infinite;
+}
+@keyframes dots {
+  to { width: 1.3em; }
+}
+
+/* Drag-and-drop + keyboard focus states */
+.dropzone-wrapper.dragging {
+  background-color: #fff4e5;
+}
+.dropzone-wrapper:focus-visible {
+  outline: 3px solid #F5AA4C;
+  outline-offset: 4px;
+}
