@@ -45,7 +45,6 @@ header {
 
 .logo-wrap {
   height: 48px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,12 +55,6 @@ header {
   max-width: 220px;
   object-fit: contain;
   display: block;
-}
-
-.brand-name {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
 }
 
 nav {
@@ -254,10 +247,6 @@ nav a:hover {
   font-weight: 700;
   color: #ffffff;
   line-height: 1.25;
-}
-
-#logoFileInput {
-  display: none;
 }
 
 /* Responsive adjustments */
