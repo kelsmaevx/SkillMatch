@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillMatch - Build Your Match Profile</title>
-  <link rel="stylesheet" href="upload.css" />
+  <link rel="icon" type="image/png" href="../Images/SkillMatch%20Logo.png" />
+  <link rel="stylesheet" href="upload%20file.css" />
 </head>
 <body>
 
   <!-- Background Vector Graphics -->
-  <svg class="bg-graphics" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <svg class="bg-graphics" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
     <defs>
       <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
         <stop offset="0%" stop-color="#FFD17A" stop-opacity="0.35" />
@@ -29,16 +30,16 @@
 
   <!-- Header -->
   <header>
-    <a href="index.html" class="brand">
+    <a href="../HOMEPAGE/homepage.html" class="brand">
       <div class="logo-wrap" id="logoContainer">
-        <img id="headerLogoImg" src="SkillMatch Logo with Name.png" alt="SkillMatch Logo" crossorigin="anonymous">
+        <img id="headerLogoImg" src="../Images/SkillMatch%20Logo%20with%20Name.png" alt="SkillMatch Logo">
       </div>
     </a>
 
     <nav>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="upload.html" class="active">Find Matches</a>
-      <a href="about-us.html">About Us</a>
+      <a href="../HOW%20IT%20WORKS/how%20it%20works.html">How It Works</a>
+      <a href="upload%20file.html" class="active">Find Matches</a>
+      <a href="../ABOUT%20US%20PAGE/about%20us.html">About Us</a>
     </nav>
 
     <div class="login-status">
@@ -73,11 +74,11 @@
           <option value="Cebu">Cebu</option>
         </select>
         <!-- Page 4 Error Message -->
-        <span class="error-msg" id="errorMsg">*Insufficient information. Try again.</span>
+        <span class="error-msg" id="errorMsg" role="alert">*Please select a location and upload your resume.</span>
       </div>
 
       <!-- Dashed Gradient Upload Box -->
-      <div class="dropzone-wrapper" id="dropzone">
+      <div class="dropzone-wrapper" id="dropzone" tabindex="0" role="button" aria-label="Upload your resume as PDF or DOCX">
         <svg class="dashed-border-svg" viewBox="0 0 700 240" preserveAspectRatio="none">
           <defs>
             <linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -105,7 +106,7 @@
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
               </svg>
-              <span>.DOC</span>
+              <span>DOCX</span>
             </div>
           </div>
 
@@ -129,29 +130,32 @@
   </section>
 
   <script>
-    // Strip white background from header logo
+    // Removes the white background from the header logo.
+    // If the browser blocks canvas access (e.g. page opened via file://), the original logo is kept.
     window.addEventListener('DOMContentLoaded', () => {
       const img = document.getElementById('headerLogoImg');
       const temp = new Image();
-      temp.crossOrigin = "Anonymous";
       temp.onload = function () {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = temp.width;
-        canvas.height = temp.height;
-        ctx.drawImage(temp, 0, 0);
-        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < imgData.data.length; i += 4) {
-          if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
-            imgData.data[i + 3] = 0;
+        try {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = temp.width;
+          canvas.height = temp.height;
+          ctx.drawImage(temp, 0, 0);
+          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < imgData.data.length; i += 4) {
+            if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
+              imgData.data[i + 3] = 0;
+            }
           }
-        }
-        ctx.putImageData(imgData, 0, 0);
-        img.src = canvas.toDataURL('image/png');
+          ctx.putImageData(imgData, 0, 0);
+          img.src = canvas.toDataURL('image/png');
+        } catch (e) { /* keep original logo */ }
       };
       temp.src = img.src;
     });
 
+    const MAX_MB = 5;
     const dropzone = document.getElementById('dropzone');
     const resumeInput = document.getElementById('resumeInput');
     const fileNameDisplay = document.getElementById('fileNameDisplay');
@@ -160,30 +164,81 @@
     const analyzeBtn = document.getElementById('analyzeBtn');
     const uploadSection = document.getElementById('uploadSection');
     const loadingSection = document.getElementById('loadingSection');
+    const DEFAULT_LABEL = 'Upload PDF/Docx';
 
-    dropzone.addEventListener('click', () => resumeInput.click());
+    function showError(msg) {
+      errorMsg.textContent = msg;
+      errorMsg.style.display = 'inline-block';
+    }
+    function clearError() {
+      errorMsg.style.display = 'none';
+    }
+    function resetFile() {
+      resumeInput.value = '';
+      fileNameDisplay.textContent = DEFAULT_LABEL;
+    }
+    function handleFile(file) {
+      if (!file) return;
+      const ext = file.name.split('.').pop().toLowerCase();
+      if (ext !== 'pdf' && ext !== 'docx') {
+        resetFile();
+        showError('*Only PDF or DOCX files are supported.');
+        return;
+      }
+      if (file.size > MAX_MB * 1024 * 1024) {
+        resetFile();
+        showError('*File is too large. Maximum size is ' + MAX_MB + ' MB.');
+        return;
+      }
+      fileNameDisplay.textContent = file.name;
+      clearError();
+    }
 
-    resumeInput.addEventListener('change', () => {
-      if (resumeInput.files.length > 0) {
-        fileNameDisplay.textContent = resumeInput.files[0].name;
-        errorMsg.style.display = 'none';
+    dropzone.addEventListener('click', (e) => {
+      if (e.target === resumeInput) return;
+      resumeInput.click();
+    });
+    dropzone.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        resumeInput.click();
+      }
+    });
+    resumeInput.addEventListener('change', () => handleFile(resumeInput.files[0]));
+
+    ['dragenter', 'dragover'].forEach((evt) =>
+      dropzone.addEventListener(evt, (e) => { e.preventDefault(); dropzone.classList.add('dragging'); })
+    );
+    ['dragleave', 'drop'].forEach((evt) =>
+      dropzone.addEventListener(evt, (e) => { e.preventDefault(); dropzone.classList.remove('dragging'); })
+    );
+    dropzone.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        resumeInput.files = files;
+        handleFile(files[0]);
       }
     });
 
+    locationSelect.addEventListener('change', clearError);
+
     analyzeBtn.addEventListener('click', () => {
-      // Trigger Page 4 validation state if location or file is missing
-      if (!locationSelect.value || resumeInput.files.length === 0) {
-        errorMsg.style.display = 'inline-block';
+      if (!locationSelect.value) {
+        showError('*Please select a location.');
+        return;
+      }
+      if (resumeInput.files.length === 0) {
+        showError('*Please upload your resume (PDF or DOCX).');
         return;
       }
 
-      // Trigger Page 5 reading file state, then redirect to Page 6
-      errorMsg.style.display = 'none';
+      clearError();
       uploadSection.style.display = 'none';
       loadingSection.style.display = 'flex';
 
+      // Placeholder: replace with the real call to your Java backend.
       setTimeout(() => {
-        window.location.href = 'matches.html';
+        window.location.href = '../TOP%205%20MATCHES%20PAGE/top%205%20matches.html';
       }, 2000);
     });
   </script>
