@@ -141,8 +141,8 @@ nav a.active {
     #74D14C 0% 40%,       /* Skills 40% */
     #F97316 40% 60%,      /* Experience 20% */
     #3B82F6 60% 75%,      /* Education 15% */
-    #D8B4FE 75% 85%,      /* Interests 10% */
-    #EF4444 85% 100%      /* Preferences 15% */
+    #EF4444 75% 90%,      /* Preferences 15% */
+    #D8B4FE 90% 100%      /* Interests 10% */
   );
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
 }
@@ -332,4 +332,10 @@ nav a.active {
   .container {
     padding: 24px;
   }
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
