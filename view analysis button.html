@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillMatch - Your Details</title>
+  <link rel="icon" type="image/png" href="../Images/SkillMatch%20Logo.png" />
+  <link rel="stylesheet" href="view%20analysis%20button.css" />
+</head>
+<body>
+
+  <!-- Background Vector Graphics -->
+  <svg class="bg-graphics" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
+        <stop offset="0%" stop-color="#FFD17A" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#FFD17A" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="glow2" cx="85%" cy="80%" r="60%">
+        <stop offset="0%" stop-color="#220716" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="#220716" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="url(#glow1)" />
+    <rect width="1440" height="900" fill="url(#glow2)" />
+    <circle cx="1160" cy="450" r="340" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+    <circle cx="1160" cy="450" r="460" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2" />
+    <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
+  </svg>
+
+  <!-- Header -->
+  <header>
+    <a href="homepage.html" class="brand">
+      <div class="logo-wrap" id="logoContainer">
+        <img id="headerLogoImg" src="../Images/SkillMatch%20Logo%20with%20Name.png" alt="SkillMatch Logo">
+      </div>
+    </a>
+
+    <nav>
+      <a href="how it works.html">How It Works</a>
+      <a href="upload file.html" class="active">Find Matches</a>
+      <a href="about us.html">About Us</a>
+    </nav>
+
+    <div class="login-status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>No Log In Needed</span>
+    </div>
+  </header>
+
+  <!-- Main Analysis Container -->
+  <main class="container">
+    <h1 class="page-title">Your Details</h1>
+
+    <div class="details-layout">
+      <!-- Left Column: Weighted Criteria Pie Chart -->
+      <div class="basis-panel">
+        <h2>The basis are:</h2>
+
+        <div class="pie-wrapper">
+          <div class="pie-chart"></div>
+          <ul class="pie-legend">
+            <li><span class="dot skills"></span> Skills <strong>40%</strong></li>
+            <li><span class="dot experience"></span> Experience <strong>20%</strong></li>
+            <li><span class="dot education"></span> Education <strong>15%</strong></li>
+            <li><span class="dot preferences"></span> Preferences <strong>15%</strong></li>
+            <li><span class="dot interests"></span> Interests <strong>10%</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column: Score Donut Ring & Recommendation Rationale -->
+      <div class="analysis-panel">
+        <div class="score-header">
+          <!-- Thick Green/Black Donut Ring matching Page 7 -->
+          <div class="donut-box">
+            <svg viewBox="0 0 120 120">
+              <circle class="donut-bg" cx="60" cy="60" r="48"></circle>
+              <circle class="donut-fill" cx="60" cy="60" r="48" stroke-dasharray="301.6" stroke-dashoffset="90.5"></circle>
+            </svg>
+            <span class="donut-text">70%</span>
+          </div>
+
+          <div class="status-info">
+            <span class="compat-heading">Compatibility Status</span>
+            <div class="compat-value">Good Match</div>
+          </div>
+        </div>
+
+        <div class="rationale-box">
+          <h3>Full Stack Web Developer</h3>
+          <p>
+            Your profile demonstrates strong alignment in core programming fundamentals, web development coursework,
+            and academic project experience. Strengthening your cloud deployment and containerization skills will elevate
+            your match score into the Strong Match tier (80% and above).
+          </p>
+          <div class="skills-split">
+            <div>
+              <h4>Matched Skills</h4>
+              <span class="skill-chip matched">Java</span>
+              <span class="skill-chip matched">HTML/CSS</span>
+              <span class="skill-chip matched">SQL</span>
+            </div>
+            <div>
+              <h4>Missing Skills</h4>
+              <span class="skill-chip missing">Docker</span>
+              <span class="skill-chip missing">REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-footer">
+          <a href="top 5 matches.html" class="back-btn">&larr; Back to Results</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Removes the white background from the header logo.
+    // If the browser blocks canvas access (e.g. page opened via file://), the original logo is kept.
+    window.addEventListener('DOMContentLoaded', () => {
+      const img = document.getElementById('headerLogoImg');
+      const temp = new Image();
+      temp.onload = function () {
+        try {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = temp.width;
+          canvas.height = temp.height;
+          ctx.drawImage(temp, 0, 0);
+          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < imgData.data.length; i += 4) {
+            if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
+              imgData.data[i + 3] = 0;
+            }
+          }
+          ctx.putImageData(imgData, 0, 0);
+          img.src = canvas.toDataURL('image/png');
+        } catch (e) { /* keep original logo */ }
+      };
+      temp.src = img.src;
+    });
+  </script>
+
+</body>
+</html>
