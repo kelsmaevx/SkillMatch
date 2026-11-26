@@ -2,7 +2,6 @@ package skillmatch;
 
 import java.util.*;
 
-/** Tiny JSON reader/writer (maps, lists, strings, numbers, booleans, null). */
 final class Json {
     private final String s; private int i;
     private Json(String s) { this.s = s; }

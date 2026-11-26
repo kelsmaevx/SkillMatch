@@ -2,7 +2,6 @@ package skillmatch;
 
 import java.util.*;
 
-/** Language-model features with a keyword/template fallback for every one of them. */
 class AiService {
     private final ClaudeClient claude; private final ResumeAnalyzer analyzer;
     AiService(ClaudeClient c, ResumeAnalyzer a) { claude = c; analyzer = a; }
@@ -26,11 +25,10 @@ class AiService {
             } catch (Exception e) { r.profile = null; }
         }
         if (r.profile == null) { r.profile = analyzer.analyze(text, skillVocab, new ArrayList<>(tagVocab)); r.usedAi = false; }
-        r.techRelated = analyzer.isTechRelated(r.profile);   // always decided by deterministic code
+        r.techRelated = analyzer.isTechRelated(r.profile);
         return r;
     }
 
-    /** Replaces the template explanations with Claude's wording; scores are never changed. */
     @SuppressWarnings("unchecked")
     void explain(Profile p, List<MatchResult> results) {
         if (!claude.available() || results.isEmpty()) return;
@@ -44,7 +42,7 @@ class AiService {
                 Map<String, Object> m = (Map<String, Object>) o;
                 for (MatchResult r : results) if (r.id.equals(m.get("id")) && m.get("explanation") instanceof String s && !s.isBlank()) r.explanation = s;
             }
-        } catch (Exception e) { /* keep template text */ }
+        } catch (Exception e) { }
     }
 
     @SuppressWarnings("unchecked")
@@ -59,7 +57,7 @@ class AiService {
             Map<String, Object> adv = (Map<String, Object>) m.getOrDefault("advice", Map.of());
             for (GapItem i : base.items) if (adv.get(i.skill) instanceof String s && !s.isBlank()) i.advice = s;
             if (m.get("summary") instanceof String s && !s.isBlank()) base.summary = s;
-        } catch (Exception e) { /* keep template text */ }
+        } catch (Exception e) { }
         return base;
     }
 }

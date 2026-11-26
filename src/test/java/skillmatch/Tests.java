@@ -7,7 +7,6 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.zip.*;
 
-/** Dependency-free checks: run with `java -cp target/test-classes:target/classes skillmatch.Tests`. */
 public class Tests {
     static int pass, fail;
     static void check(String name, boolean ok) { if (ok) pass++; else fail++; System.out.println((ok ? "PASS  " : "FAIL  ") + name); }
@@ -27,7 +26,6 @@ public class Tests {
     static String code(byte[] d) { try { new ResumeParser().extractText(d); return "OK"; } catch (ResumeException e) { return e.code; } }
 
     public static void main(String[] a) throws Exception {
-        // --- scoring
         MatchingEngine eng = new MatchingEngine();
         Opportunity job = new Job("t", "Java Developer", "X", "Batangas City", "", "Bachelor's", 1, List.of("Java", "SQL", "Git", "Docker"), List.of("Backend"), "");
         Profile full = new Profile(List.of("java", "SQL", "Git", "Docker"), List.of("Backend"), "Bachelor of Science", "Batangas City", "Job", 2);
@@ -46,7 +44,6 @@ public class Tests {
         try { new Job("x", "Barista", "X", "Batangas City", "", "High School", 0, List.of("Latte Art"), List.of(), "").validate(); check("non-tech opportunity rejected", false); }
         catch (IllegalArgumentException e) { check("non-tech opportunity rejected", true); }
 
-        // --- layout analyzer (synthetic): two columns vs one column with right-aligned dates
         List<double[]> two = new ArrayList<>(), one = new ArrayList<>();
         for (int i = 0; i < 30; i++) { two.add(new double[]{40, 270, 50 + i * 14}); two.add(new double[]{330, 560, 50 + i * 14}); one.add(new double[]{40, 540, 50 + i * 14}); }
         for (int i = 0; i < 6; i++) { one.add(new double[]{500, 560, 50 + i * 28}); }
@@ -55,7 +52,6 @@ public class Tests {
         List<double[]> side = new ArrayList<>(); for (int i = 0; i < 30; i++) { side.add(new double[]{20, 150, 50 + i * 14}); side.add(new double[]{200, 580, 50 + i * 14}); }
         check("analyzer: narrow sidebar layout detected", LayoutAnalyzer.isMultiColumn(new PageLayout(612, side)));
 
-        // --- parser
         check("DOCX one column accepted", code(docx(GOOD)).equals("OK"));
         check("DOCX w:cols num=2 -> MULTI_COLUMN", code(docx("<w:sectPr><w:cols w:num=\"2\"/></w:sectPr>" + GOOD)).equals("MULTI_COLUMN"));
         check("DOCX text box sidebar -> MULTI_COLUMN", code(docx("<w:p><w:r><w:txbxContent>" + p("SKILLS Java Python SQL Git Docker Linux Kubernetes AWS") + "</w:txbxContent></w:r></w:p>" + GOOD)).equals("MULTI_COLUMN"));
@@ -70,11 +66,9 @@ public class Tests {
         byte[] zeroed = docx(GOOD); new ResumeParser().discard(zeroed);
         check("discard() overwrites bytes with zeros", Arrays.equals(zeroed, new byte[zeroed.length]));
 
-        // --- shipped template must itself be accepted, and produce a tech profile
         byte[] tpl = Files.readAllBytes(Path.of("src/main/resources/web/templates/skillmatch-resume-template.docx"));
         check("shipped sample template passes the one-column check", code(tpl.clone()).equals("OK"));
 
-        // --- end to end over HTTP (no API key => keyword fallback)
         Main app = Main.build(""); com.sun.net.httpserver.HttpServer srv = app.start(0); int port = srv.getAddress().getPort();
         HttpClient http = HttpClient.newHttpClient(); String base = "http://localhost:" + port;
         HttpResponse<String> r1 = post(http, base, "Batangas City", docx(GOOD));

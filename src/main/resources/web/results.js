@@ -1,4 +1,3 @@
-// Fills the results pages from the analysis the server returned (kept in this tab only).
 const RESULT = JSON.parse(sessionStorage.getItem('skillmatch.result') || 'null');
 const PAGE = decodeURIComponent(location.pathname).toLowerCase();
 if (!RESULT) location.replace('upload file.html');
@@ -27,7 +26,7 @@ if (RESULT && PAGE.includes('skill gaps')) {
 if (RESULT && PAGE.includes('view analysis')) {
   const r = RESULT.results[(Number(new URLSearchParams(location.search).get('rank')) || 1) - 1] || RESULT.results[0];
   if (r) {
-    const C = 301.6;   // 2 * PI * r, r = 48
+    const C = 301.6;
     document.querySelector('.rationale-box h3').textContent = r.title;
     document.querySelector('.donut-text').textContent = r.score + '%';
     document.querySelector('.donut-fill').setAttribute('stroke-dashoffset', (C * (1 - r.score / 100)).toFixed(1));

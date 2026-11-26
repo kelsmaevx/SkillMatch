@@ -2,7 +2,6 @@ package skillmatch;
 
 import java.util.*;
 
-/** Runs the whole flow for one upload: resume in, top five matches and skill gaps out. Nothing is stored. */
 class AnalysisService {
     private final ResumeParser parser; private final AiService ai; private final Recommender recommender;
     private final SkillGapSummarizer gapSummarizer; private final OpportunityRepository repo;

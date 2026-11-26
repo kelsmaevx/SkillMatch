@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <!-- Background Vector Graphics -->
   <svg class="bg-graphics" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
     <defs>
       <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
@@ -28,7 +27,6 @@
     <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
   </svg>
 
-  <!-- Header -->
   <header>
     <a href="homepage.html" class="brand">
       <div class="logo-wrap" id="logoContainer">
@@ -51,7 +49,6 @@
     </div>
   </header>
 
-  <!-- Main Skill Gaps Container -->
   <main class="container">
     <div class="section-heading">
       <span class="step-badge">03</span>
@@ -62,7 +59,6 @@
     </div>
 
     <div class="gaps-layout">
-      <!-- Left Column: Numbered 1 to 5 Skill Gap Items -->
       <div class="gaps-list">
         <div class="gap-item">
           <div class="gap-num">1</div>
@@ -105,7 +101,6 @@
         </div>
       </div>
 
-      <!-- Right Column: Summarization Box -->
       <aside class="summary-panel">
         <h2>Skill Gap Summary</h2>
         <p>
@@ -121,8 +116,6 @@
   </main>
 
   <script>
-    // Removes the white background from the header logo.
-    // If the browser blocks canvas access (e.g. page opened via file://), the original logo is kept.
     window.addEventListener('DOMContentLoaded', () => {
       const img = document.getElementById('headerLogoImg');
       const temp = new Image();
@@ -141,7 +134,7 @@
           }
           ctx.putImageData(imgData, 0, 0);
           img.src = canvas.toDataURL('image/png');
-        } catch (e) { /* keep original logo */ }
+        } catch (e) { }
       };
       temp.src = img.src;
     });

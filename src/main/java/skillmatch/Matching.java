@@ -21,7 +21,6 @@ class SkillGapAnalyzer {
     }
 }
 
-/** Deterministic weighted score: skills 40, experience 20, education 15, interests 10, location+preferences 15. */
 class MatchingEngine implements Matcher {
     private final SkillGapAnalyzer gap = new SkillGapAnalyzer();
 

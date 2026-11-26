@@ -9,7 +9,6 @@ import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.TextPosition;
 
-/** PDFBox adapter: text plus positioned word boxes for the first 10 pages, all in memory. */
 final class PdfBoxReader {
     static PdfContent read(byte[] data) throws ResumeException {
         try (PDDocument doc = Loader.loadPDF(data)) {

@@ -3,7 +3,6 @@ package skillmatch;
 import java.util.*;
 import java.util.regex.Pattern;
 
-/** Keyword-based profile reading, used when Claude is unavailable, and the tech filter. */
 class ResumeAnalyzer {
     Profile analyze(String text, List<String> skillVocab, List<String> tagVocab) {
         List<String> skills = keepRelevant(keywordMatch(text, skillVocab), skillVocab);
@@ -32,7 +31,6 @@ class ResumeAnalyzer {
     }
     boolean isTechRelated(Profile p) { return TechCatalog.hasTechSkill(p.getSkills()); }
 
-    /** Text under a heading, up to the next recognised heading (or the whole text if none). */
     static String sectionText(String text, String names) {
         java.util.regex.Matcher h = Pattern.compile("(?im)^\\s*(" + names + ")\\s*:?\\s*$").matcher(text);
         if (!h.find()) return "";

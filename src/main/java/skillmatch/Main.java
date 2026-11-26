@@ -6,7 +6,6 @@ import java.net.InetSocketAddress;
 import java.util.*;
 import java.util.concurrent.Executors;
 
-/** Starts the website: static pages from /web plus GET /api/locations and POST /api/analyze. */
 public class Main {
     static final String TEMPLATE_URL = "/templates/skillmatch-resume-template.docx";
     static final int MAX_BODY = ResumeParser.MAX_BYTES + 512 * 1024;
@@ -30,7 +29,7 @@ public class Main {
     }
 
     HttpServer start(int port) throws IOException {
-        HttpServer s = HttpServer.create(new InetSocketAddress("127.0.0.1", port), 0);
+        HttpServer s = HttpServer.create(new InetSocketAddress(port), 0);
         s.createContext("/", this::staticFile); s.createContext("/api/locations", ex -> send(ex, 200, Map.of("locations", repo.locations())));
         s.createContext("/api/analyze", this::analyze); s.setExecutor(Executors.newFixedThreadPool(8)); s.start(); return s;
     }
@@ -97,7 +96,6 @@ public class Main {
     }
 }
 
-/** Minimal multipart/form-data reader (binary safe). */
 final class Multipart {
     static Map<String, byte[]> parse(byte[] body, String boundary) {
         Map<String, byte[]> out = new HashMap<>(); byte[] delim = ("--" + boundary).getBytes();

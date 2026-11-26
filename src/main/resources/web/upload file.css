@@ -87,7 +87,6 @@ nav a.active {
   height: 22px;
 }
 
-/* Main Step 01 Card */
 .container {
   position: relative;
   z-index: 10;
@@ -162,7 +161,6 @@ nav a.active {
   border-color: #DF6C51;
 }
 
-/* Page 4 Error Text */
 .error-msg {
   display: none;
   color: #dc2626;
@@ -170,7 +168,6 @@ nav a.active {
   font-weight: 600;
 }
 
-/* Dashed Upload Area */
 .dropzone-wrapper {
   position: relative;
   width: 100%;
@@ -261,7 +258,6 @@ nav a.active {
   transform: translateY(-2px);
 }
 
-/* Page 5 Loading Screen */
 .loading-overlay {
   display: none;
   position: relative;
@@ -318,7 +314,6 @@ nav a.active {
   }
 }
 
-/* Loading dots animation */
 .dots {
   display: inline-block;
   overflow: hidden;
@@ -330,7 +325,6 @@ nav a.active {
   to { width: 1.3em; }
 }
 
-/* Drag-and-drop + keyboard focus states */
 .dropzone-wrapper.dragging {
   background-color: #fff4e5;
 }
@@ -339,7 +333,6 @@ nav a.active {
   outline-offset: 4px;
 }
 
-/* Resume fallback panel */
 .template-box { display: none; background: rgba(255,255,255,0.94); color: #1e1b24; border-radius: 26px; padding: 40px 48px; box-shadow: 0 20px 45px rgba(24,6,16,0.28); }
 .template-box h2 { color: #2B0D1E; font-size: 26px; margin-bottom: 10px; }
 .template-box p { color: #524b5c; line-height: 1.6; margin-bottom: 12px; }

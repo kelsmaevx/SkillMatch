@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <!-- Background Vector Graphics -->
   <svg class="bg-graphics" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
     <defs>
       <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
@@ -28,7 +27,6 @@
     <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
   </svg>
 
-  <!-- Header -->
   <header>
     <a href="homepage.html" class="brand">
       <div class="logo-wrap" id="logoContainer">
@@ -51,7 +49,6 @@
     </div>
   </header>
 
-  <!-- Step 01 Upload Container (Pages 3 & 4) -->
   <main class="container" id="uploadSection">
     <div class="step-card">
       <div class="step-header">
@@ -62,7 +59,6 @@
         </div>
       </div>
 
-      <!-- Location Dropdown -->
       <div class="location-group">
         <label for="locationSelect">Location:</label>
         <select id="locationSelect">
@@ -73,11 +69,9 @@
           <option value="Santo Tomas City">Santo Tomas City</option>
           <option value="Calaca City">Calaca City</option>
         </select>
-        <!-- Page 4 Error Message -->
         <span class="error-msg" id="errorMsg" role="alert">*Please select a location and upload your resume.</span>
       </div>
 
-      <!-- Dashed Gradient Upload Box -->
       <div class="dropzone-wrapper" id="dropzone" tabindex="0" role="button" aria-label="Upload your resume as PDF or DOCX">
         <svg class="dashed-border-svg" viewBox="0 0 700 240" preserveAspectRatio="none">
           <defs>
@@ -92,7 +86,6 @@
 
         <div class="dropzone-content">
           <div class="file-icons">
-            <!-- PDF Icon -->
             <div class="doc-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -100,7 +93,6 @@
               </svg>
               <span>PDF</span>
             </div>
-            <!-- DOCX Icon -->
             <div class="doc-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -119,7 +111,6 @@
         <button type="button" class="submit-btn" id="analyzeBtn">Find Matches</button>
       </div>
     </div>
-    <!-- Fallback: shown when the resume cannot be read (multi-column, scanned, wrong type...) -->
     <div class="template-box" id="templateBox" role="alert">
       <h2>We couldn't read that resume</h2>
       <p id="templateMsg"></p>
@@ -131,7 +122,6 @@
     </div>
   </main>
 
-  <!-- Page 5 Loading Screen -->
   <section class="loading-overlay" id="loadingSection">
     <div class="loader-box">
       <div class="spinner-ring"></div>
@@ -140,8 +130,6 @@
   </section>
 
   <script>
-    // Removes the white background from the header logo.
-    // If the browser blocks canvas access (e.g. page opened via file://), the original logo is kept.
     window.addEventListener('DOMContentLoaded', () => {
       const img = document.getElementById('headerLogoImg');
       const temp = new Image();
@@ -160,7 +148,7 @@
           }
           ctx.putImageData(imgData, 0, 0);
           img.src = canvas.toDataURL('image/png');
-        } catch (e) { /* keep original logo */ }
+        } catch (e) { }
       };
       temp.src = img.src;
     });
@@ -255,14 +243,14 @@
         uploadSection.style.display = '';
         if (!res.ok) {
           const err = data.error || {};
-          if (err.template) {   // resume could not be read: offer the sample template
+          if (err.template) {
             document.getElementById('templateMsg').textContent = err.message || '';
             document.querySelector('.step-card').style.display = 'none';
             templateBox.style.display = 'block';
           } else { showError('*' + (err.message || 'Something went wrong.')); }
           return;
         }
-        sessionStorage.setItem('skillmatch.result', JSON.stringify(data));   // this tab only; the server stores nothing
+        sessionStorage.setItem('skillmatch.result', JSON.stringify(data));
         window.location.href = 'top 5 matches.html';
       } catch (err) {
         loadingSection.style.display = 'none';

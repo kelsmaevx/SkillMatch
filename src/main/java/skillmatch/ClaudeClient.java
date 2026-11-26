@@ -6,7 +6,6 @@ import java.net.http.*;
 import java.time.Duration;
 import java.util.*;
 
-/** Sends requests to the Claude API. The key comes from ANTHROPIC_API_KEY; without it, available() is false. */
 class ClaudeClient {
     private final String apiKey, model;
     private final HttpClient http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
@@ -27,7 +26,6 @@ class ClaudeClient {
             if (c instanceof Map<?, ?> m && "text".equals(m.get("type"))) out.append(m.get("text"));
         return out.toString();
     }
-    /** Strips code fences and any text around the outermost JSON object or array. */
     static String clean(String s) {
         int a = s.indexOf('{'), b = s.lastIndexOf('}'), c = s.indexOf('['), d = s.lastIndexOf(']');
         if (c >= 0 && (a < 0 || c < a)) return s.substring(c, d + 1);

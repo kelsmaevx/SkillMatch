@@ -8,19 +8,15 @@ import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.*;
 
-/** A resume that cannot be read. The website answers with a message plus the sample template. */
 class ResumeException extends Exception {
     final String code;
     ResumeException(String code, String message) { super(message); this.code = code; }
 }
 
-/** One page of positioned text boxes {x0, x1, y} used to look for a column gutter. */
 record PageLayout(double width, List<double[]> boxes) {}
 record PdfContent(String text, List<PageLayout> pages) {}
 
-/** Decides whether text is laid out in more than one column. */
 final class LayoutAnalyzer {
-    /** True when a vertical gap splits many lines into a left and a right part (columns or sidebar). */
     static boolean isMultiColumn(PageLayout page) {
         Map<Long, List<double[]>> lines = new HashMap<>();
         for (double[] b : page.boxes()) lines.computeIfAbsent(Math.round(b[2] / 4.0), k -> new ArrayList<>()).add(b);
@@ -46,7 +42,6 @@ final class LayoutAnalyzer {
     }
 }
 
-/** Reads PDF/DOCX bytes in memory only; rejects anything that is not a readable one-column resume. */
 class ResumeParser {
     static final int MAX_BYTES = 5 * 1024 * 1024, MAX_CHARS = 15000;
     static final java.util.regex.Pattern HEADING = java.util.regex.Pattern.compile(
@@ -117,6 +112,5 @@ class ResumeParser {
         return b.toString();
     }
 
-    /** Overwrites the uploaded bytes with zeros once the request is done. */
     void discard(byte[] data) { if (data != null) Arrays.fill(data, (byte) 0); }
 }

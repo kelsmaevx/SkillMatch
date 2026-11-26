@@ -3,7 +3,6 @@ package skillmatch;
 import java.util.*;
 import java.util.regex.Pattern;
 
-/** Domain model: opportunities (abstract + Job/Internship), profile, results, labels. */
 abstract class Opportunity {
     protected String id, title, company, location, description, minEducation;
     protected double minExperience;
@@ -18,7 +17,6 @@ abstract class Opportunity {
     }
     public abstract String getType();
     public double requiredExperience() { return minExperience; }
-    /** Throws if the record is incomplete or not tech-related (checked when data loads). */
     public void validate() {
         for (String f : new String[]{id, title, company, location})
             if (f == null || f.isBlank()) throw new IllegalArgumentException("Opportunity " + id + " is missing a required field");
@@ -52,7 +50,6 @@ class Internship extends Opportunity {
     @Override public double requiredExperience() { return Math.min(minExperience, 0.5); }
 }
 
-/** The user's qualifications for one request. Validates in the constructor; nothing is stored. */
 class Profile {
     static final List<String> EDUCATION = List.of("High School", "Vocational", "Bachelor's", "Master's", "Doctorate");
     private final List<String> skills, interests;
@@ -69,7 +66,6 @@ class Profile {
         this.preferredType = t.startsWith("intern") ? "Internship" : t.startsWith("job") ? "Job" : "Any";
         this.experienceYears = Double.isNaN(experienceYears) ? 0 : Math.max(0, Math.min(40, experienceYears));
     }
-    /** Unknown education text falls back to the safe default "High School". */
     static String normEducation(String s) {
         String t = s == null ? "" : s.toLowerCase();
         if (t.matches(".*(doctor|ph\\.?d).*")) return "Doctorate";
@@ -112,7 +108,6 @@ class AnalysisResult {
     public List<MatchResult> results = new ArrayList<>(); public GapSummary gaps;
 }
 
-/** Which skills and job titles count as technology. */
 class TechCatalog {
     private static final List<String> SKILLS = List.of(
         "Java", "Python", "JavaScript", "TypeScript", "C++", "C#", "C", "PHP", "Kotlin", "Swift", "Golang", "Rust", "Ruby", "SQL",

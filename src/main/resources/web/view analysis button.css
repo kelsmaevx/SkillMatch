@@ -132,17 +132,16 @@ nav a.active {
   gap: 28px;
 }
 
-/* Conic gradient matching Page 7 colors & percentages */
 .pie-chart {
   width: 230px;
   height: 230px;
   border-radius: 50%;
   background: conic-gradient(
-    #74D14C 0% 40%,       /* Skills 40% */
-    #F97316 40% 60%,      /* Experience 20% */
-    #3B82F6 60% 75%,      /* Education 15% */
-    #EF4444 75% 90%,      /* Preferences 15% */
-    #D8B4FE 90% 100%      /* Interests 10% */
+    #74D14C 0% 40%,
+    #F97316 40% 60%,
+    #3B82F6 60% 75%,
+    #EF4444 75% 90%,
+    #D8B4FE 90% 100%
   );
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
 }
@@ -175,7 +174,6 @@ nav a.active {
 .dot.interests { background: #D8B4FE; }
 .dot.preferences { background: #EF4444; }
 
-/* Right Panel */
 .analysis-panel {
   display: flex;
   flex-direction: column;

@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <!-- Background Vector Graphics -->
   <svg class="bg-graphics" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
     <defs>
       <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
@@ -28,7 +27,6 @@
     <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
   </svg>
 
-  <!-- Header -->
   <header>
     <a href="homepage.html" class="brand">
       <div class="logo-wrap" id="logoContainer">
@@ -51,9 +49,7 @@
     </div>
   </header>
 
-  <!-- Main About Us Container -->
   <main class="container">
-    <!-- About the Website -->
     <section class="about-card">
       <h1>About the Website</h1>
       <p>
@@ -70,9 +66,7 @@
       </p>
     </section>
 
-    <!-- Bottom Grid: Meet the Team & Contact Us -->
     <div class="bottom-grid">
-      <!-- Meet the Team -->
       <section class="team-section">
         <h2>Meet the Team</h2>
         <div class="team-grid">
@@ -96,7 +90,6 @@
         </div>
       </section>
 
-      <!-- Feedback & Contact Us -->
       <section class="contact-section">
         <h2>Give us a Feedback and Contact Us!</h2>
         <ul class="contact-list">
@@ -118,8 +111,6 @@
   </main>
 
   <script>
-    // Removes the white background from the header logo.
-    // If the browser blocks canvas access (e.g. page opened via file://), the original logo is kept.
     window.addEventListener('DOMContentLoaded', () => {
       const img = document.getElementById('headerLogoImg');
       const temp = new Image();
@@ -138,7 +129,7 @@
           }
           ctx.putImageData(imgData, 0, 0);
           img.src = canvas.toDataURL('image/png');
-        } catch (e) { /* keep original logo */ }
+        } catch (e) { }
       };
       temp.src = img.src;
     });

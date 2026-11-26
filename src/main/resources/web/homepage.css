@@ -13,7 +13,6 @@ body {
   position: relative;
 }
 
-/* Subtle background wave graphics */
 .bg-graphics {
   position: fixed;
   inset: 0;
@@ -23,7 +22,6 @@ body {
   z-index: 0;
 }
 
-/* Navigation Bar */
 header {
   position: relative;
   z-index: 10;
@@ -90,7 +88,6 @@ nav a:hover {
   height: 22px;
 }
 
-/* Hero Section */
 .hero {
   position: relative;
   z-index: 10;
@@ -145,7 +142,6 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-/* Right Side Staggered Match Cards */
 .hero-right {
   display: flex;
   flex-direction: column;
@@ -172,7 +168,6 @@ nav a:hover {
   transform: translateY(-3px);
 }
 
-/* Stagger alignment matching Page 1 */
 .card-top {
   align-self: flex-end;
 }
@@ -187,7 +182,6 @@ nav a:hover {
   align-self: flex-end;
 }
 
-/* Circular Match Ring */
 .ring-box {
   position: relative;
   width: 68px;
@@ -249,7 +243,6 @@ nav a:hover {
   line-height: 1.25;
 }
 
-/* Responsive adjustments */
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column;

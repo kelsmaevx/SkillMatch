@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/** Read-only opportunity records loaded (and validated) once at startup. */
 class OpportunityRepository {
     private final List<Opportunity> items;
     private OpportunityRepository(List<Opportunity> items) { this.items = List.copyOf(items); }
