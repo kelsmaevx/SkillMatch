@@ -1,0 +1,437 @@
+[
+ {
+  "type": "Job",
+  "id": "j1",
+  "title": "Java Software Developer",
+  "company": "Northwind Labs",
+  "location": "Batangas City",
+  "description": "Java Software Developer role at Northwind Labs (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 1,
+  "skills": [
+   "Java",
+   "OOP",
+   "SQL",
+   "Git",
+   "Spring Boot",
+   "Docker"
+  ],
+  "tags": [
+   "Backend",
+   "Enterprise"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j2",
+  "title": "Backend Java Engineer",
+  "company": "Bayanihan Systems",
+  "location": "Remote",
+  "description": "Backend Java Engineer role at Bayanihan Systems (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 2,
+  "skills": [
+   "Java",
+   "Spring Boot",
+   "SQL",
+   "REST APIs",
+   "Docker",
+   "AWS"
+  ],
+  "tags": [
+   "Backend",
+   "Cloud"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j3",
+  "title": "Full Stack Web Developer",
+  "company": "Pixel Harbor",
+  "location": "Lipa City",
+  "description": "Full Stack Web Developer role at Pixel Harbor (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 1,
+  "skills": [
+   "JavaScript",
+   "TypeScript",
+   "React",
+   "Node.js",
+   "SQL",
+   "Git"
+  ],
+  "tags": [
+   "Web Development",
+   "Frontend"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j4",
+  "title": "Frontend Developer",
+  "company": "Lumen Studio",
+  "location": "Tanauan City",
+  "description": "Frontend Developer role at Lumen Studio (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 1,
+  "skills": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "React",
+   "Git",
+   "Figma"
+  ],
+  "tags": [
+   "Web Development",
+   "UI/UX"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j5",
+  "title": "Python Data Analyst",
+  "company": "Datalane Analytics",
+  "location": "Batangas City",
+  "description": "Python Data Analyst role at Datalane Analytics (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 1,
+  "skills": [
+   "Python",
+   "SQL",
+   "Pandas",
+   "Excel",
+   "Power BI",
+   "Data Analysis"
+  ],
+  "tags": [
+   "Data Science",
+   "Analytics"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j6",
+  "title": "Junior QA Automation Tester",
+  "company": "Checkmark QA",
+  "location": "Lipa City",
+  "description": "Junior QA Automation Tester role at Checkmark QA (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 0,
+  "skills": [
+   "Java",
+   "Selenium",
+   "SQL",
+   "Git",
+   "JUnit",
+   "CI/CD"
+  ],
+  "tags": [
+   "Testing",
+   "Quality"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j7",
+  "title": "Help Desk Technician",
+  "company": "Relay IT Services",
+  "location": "Tanauan City",
+  "description": "Help Desk Technician role at Relay IT Services (sample data).",
+  "minEducation": "High School",
+  "minExperience": 0,
+  "skills": [
+   "Troubleshooting",
+   "Windows Server",
+   "Networking",
+   "Help Desk"
+  ],
+  "tags": [
+   "IT Support",
+   "Networking"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j8",
+  "title": "DevOps Engineer",
+  "company": "Cloudcrest",
+  "location": "Remote",
+  "description": "DevOps Engineer role at Cloudcrest (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 2,
+  "skills": [
+   "Linux",
+   "Docker",
+   "Kubernetes",
+   "AWS",
+   "CI/CD",
+   "Git"
+  ],
+  "tags": [
+   "Cloud",
+   "DevOps"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j9",
+  "title": "Mobile App Developer",
+  "company": "Appwave",
+  "location": "Calaca City",
+  "description": "Mobile App Developer role at Appwave (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 1,
+  "skills": [
+   "Kotlin",
+   "Android",
+   "Git",
+   "REST APIs",
+   "Firebase"
+  ],
+  "tags": [
+   "Mobile",
+   "Android"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j10",
+  "title": "Cybersecurity Analyst",
+  "company": "Shieldpoint",
+  "location": "Santo Tomas City",
+  "description": "Cybersecurity Analyst role at Shieldpoint (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 1,
+  "skills": [
+   "Networking",
+   "Linux",
+   "Cybersecurity",
+   "Penetration Testing",
+   "Python"
+  ],
+  "tags": [
+   "Security",
+   "Networking"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j11",
+  "title": "Machine Learning Engineer",
+  "company": "Neuronest",
+  "location": "Remote",
+  "description": "Machine Learning Engineer role at Neuronest (sample data).",
+  "minEducation": "Master's",
+  "minExperience": 2,
+  "skills": [
+   "Python",
+   "Machine Learning",
+   "TensorFlow",
+   "Pandas",
+   "SQL",
+   "Git"
+  ],
+  "tags": [
+   "AI",
+   "Data Science"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Job",
+  "id": "j12",
+  "title": "PHP Laravel Developer",
+  "company": "Tindahan Tech",
+  "location": "Santo Tomas City",
+  "description": "PHP Laravel Developer role at Tindahan Tech (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 1,
+  "skills": [
+   "PHP",
+   "Laravel",
+   "MySQL",
+   "HTML",
+   "CSS",
+   "Git"
+  ],
+  "tags": [
+   "Web Development",
+   "Backend"
+  ],
+  "salary": "Sample"
+ },
+ {
+  "type": "Internship",
+  "id": "i1",
+  "title": "Software Engineering Intern",
+  "company": "Northwind Labs",
+  "location": "Batangas City",
+  "description": "Software Engineering Intern role at Northwind Labs (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 0,
+  "skills": [
+   "Java",
+   "OOP",
+   "SQL",
+   "Git"
+  ],
+  "tags": [
+   "Backend",
+   "Enterprise"
+  ],
+  "durationWeeks": 10
+ },
+ {
+  "type": "Internship",
+  "id": "i2",
+  "title": "Web Development Intern",
+  "company": "Pixel Harbor",
+  "location": "Lipa City",
+  "description": "Web Development Intern role at Pixel Harbor (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 0,
+  "skills": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "Git"
+  ],
+  "tags": [
+   "Web Development",
+   "Frontend"
+  ],
+  "durationWeeks": 10
+ },
+ {
+  "type": "Internship",
+  "id": "i3",
+  "title": "QA Testing Intern",
+  "company": "Checkmark QA",
+  "location": "Tanauan City",
+  "description": "QA Testing Intern role at Checkmark QA (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 0,
+  "skills": [
+   "SQL",
+   "Selenium",
+   "Git",
+   "Agile"
+  ],
+  "tags": [
+   "Testing",
+   "Quality"
+  ],
+  "durationWeeks": 10
+ },
+ {
+  "type": "Internship",
+  "id": "i4",
+  "title": "Data Analytics Intern",
+  "company": "Datalane Analytics",
+  "location": "Remote",
+  "description": "Data Analytics Intern role at Datalane Analytics (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 0,
+  "skills": [
+   "Python",
+   "SQL",
+   "Excel",
+   "Data Analysis"
+  ],
+  "tags": [
+   "Data Science",
+   "Analytics"
+  ],
+  "durationWeeks": 10
+ },
+ {
+  "type": "Internship",
+  "id": "i5",
+  "title": "IT Support Intern",
+  "company": "Relay IT Services",
+  "location": "Calaca City",
+  "description": "IT Support Intern role at Relay IT Services (sample data).",
+  "minEducation": "Vocational",
+  "minExperience": 0,
+  "skills": [
+   "Troubleshooting",
+   "Networking",
+   "Help Desk"
+  ],
+  "tags": [
+   "IT Support"
+  ],
+  "durationWeeks": 10
+ },
+ {
+  "type": "Internship",
+  "id": "i6",
+  "title": "Cloud Engineering Intern",
+  "company": "Cloudcrest",
+  "location": "Remote",
+  "description": "Cloud Engineering Intern role at Cloudcrest (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 0,
+  "skills": [
+   "Linux",
+   "Docker",
+   "AWS",
+   "Git"
+  ],
+  "tags": [
+   "Cloud",
+   "DevOps"
+  ],
+  "durationWeeks": 10
+ },
+ {
+  "type": "Internship",
+  "id": "i7",
+  "title": "Mobile Development Intern",
+  "company": "Appwave",
+  "location": "Santo Tomas City",
+  "description": "Mobile Development Intern role at Appwave (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 0,
+  "skills": [
+   "Kotlin",
+   "Android",
+   "Git"
+  ],
+  "tags": [
+   "Mobile",
+   "Android"
+  ],
+  "durationWeeks": 10
+ },
+ {
+  "type": "Internship",
+  "id": "i8",
+  "title": "Cybersecurity Intern",
+  "company": "Shieldpoint",
+  "location": "Lipa City",
+  "description": "Cybersecurity Intern role at Shieldpoint (sample data).",
+  "minEducation": "Bachelor's",
+  "minExperience": 0,
+  "skills": [
+   "Networking",
+   "Linux",
+   "Cybersecurity"
+  ],
+  "tags": [
+   "Security"
+  ],
+  "durationWeeks": 10
+ }
+]

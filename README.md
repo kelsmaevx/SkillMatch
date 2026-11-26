@@ -1,33 +1,20 @@
-# SkillMatch
+# SkillMatch (Java backend + website)
 
-## About the Project
-**SkillMatch** is a Java-based AI-powered system that scans a user’s DOCX or PDF resume to identify their skills, education, and experience, then matches them with suitable jobs and internships. It ranks opportunities based on compatibility, explains each recommendation, identifies skill gaps, and suggests relevant training to help users improve their qualifications.
+## Run
+Requires JDK 17+. In VS Code: open this folder (the one with pom.xml), open src/main/java/skillmatch/Main.java, press F5.
+Or with Maven:  mvn package  then  java -jar target/skillmatch-1.0.jar
+Open http://localhost:8080 (use PORT=9090 or a "9090" program argument if 8080 is busy).
 
-## Project Objectives
-- The main objectives of SkillMatch are to:
-- Make resume checking and job searching easier for users.
-- Help users find jobs and internships that match their qualifications.
-- Show which skills and qualifications are needed for specific opportunities.
-- Help users understand what skills they still need to improve.
-- Provide recommendations that can help users prepare for their desired careers.
+Optional: set ANTHROPIC_API_KEY to enable Claude (CLAUDE_MODEL optional). Without it the keyword/template fallback is used.
 
+## Resume fallback
+Not one column (2-column, sidebar, text boxes, layout tables), scanned, password-protected, corrupt, .doc, over 5 MB,
+or no standard sections -> clear message + download of /templates/skillmatch-resume-template.docx (which passes the same checks).
 
-## Features
-- AI Resume Scanner
-- Skill and Education Identification
-- Job and Internship Matching
-- Compatibility Ranking
-- Skill Gap Analysis
-- Career Recommendations
+## API
+GET /api/locations | POST /api/analyze (multipart: location, resume) -> results JSON or {error:{code,message,template?}}
 
-## Technologies Used
-- Java
-- Artificial Intelligence
-- PDF and DOCX Processing 
-
-## Purpose
-SkillMatch aims to help users find suitable job opportunities based on their qualifications and identify skills they can improve for their preferred careers.
-
-## Scope
-The system scans PDF and DOCX resumes, identifies user qualifications, matches them with available job opportunities, and provides skill-improvement recommendations. Its main purpose is to help users find suitable opportunities and prepare for their desired careers.
-
+## Layout
+Java classes: src/main/java/skillmatch. Pages and images: src/main/resources/web (Images/ stays next to the pages).
+Sample jobs: src/main/resources/opportunities.json (fictional companies, Batangas cities + Remote).
+Checks (no JUnit): compile, then  java -cp target/classes:target/test-classes skillmatch.Tests  from the project root.

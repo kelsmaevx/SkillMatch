@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillMatch - Build Your Match Profile</title>
+  <link rel="icon" type="image/png" href="../Images/SkillMatch%20Logo.png" />
+  <link rel="stylesheet" href="upload%20file.css" />
+</head>
+<body>
+
+  <!-- Background Vector Graphics -->
+  <svg class="bg-graphics" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="glow1" cx="15%" cy="20%" r="55%">
+        <stop offset="0%" stop-color="#FFD17A" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#FFD17A" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="glow2" cx="85%" cy="80%" r="60%">
+        <stop offset="0%" stop-color="#220716" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="#220716" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="url(#glow1)" />
+    <rect width="1440" height="900" fill="url(#glow2)" />
+    <circle cx="1160" cy="450" r="340" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+    <circle cx="1160" cy="450" r="460" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2" />
+    <path d="M-80,740 C320,620 620,860 1050,710 C1250,640 1380,690 1520,650 L1520,920 L-80,920 Z" fill="rgba(43, 13, 30, 0.16)" />
+  </svg>
+
+  <!-- Header -->
+  <header>
+    <a href="homepage.html" class="brand">
+      <div class="logo-wrap" id="logoContainer">
+        <img id="headerLogoImg" src="../Images/SkillMatch%20Logo%20with%20Name.png" alt="SkillMatch Logo">
+      </div>
+    </a>
+
+    <nav>
+      <a href="how it works.html">How It Works</a>
+      <a href="upload file.html" class="active">Find Matches</a>
+      <a href="about us.html">About Us</a>
+    </nav>
+
+    <div class="login-status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>No Log In Needed</span>
+    </div>
+  </header>
+
+  <!-- Step 01 Upload Container (Pages 3 & 4) -->
+  <main class="container" id="uploadSection">
+    <div class="step-card">
+      <div class="step-header">
+        <span class="step-badge">01</span>
+        <div>
+          <h1>Build your match profile</h1>
+          <p>Upload your updated Resume/Curriculum Vitae and select your location.</p>
+        </div>
+      </div>
+
+      <!-- Location Dropdown -->
+      <div class="location-group">
+        <label for="locationSelect">Location:</label>
+        <select id="locationSelect">
+          <option value="">Select Location...</option>
+          <option value="Batangas City">Batangas City</option>
+          <option value="Lipa City">Lipa City</option>
+          <option value="Tanauan City">Tanauan City</option>
+          <option value="Santo Tomas City">Santo Tomas City</option>
+          <option value="Calaca City">Calaca City</option>
+        </select>
+        <!-- Page 4 Error Message -->
+        <span class="error-msg" id="errorMsg" role="alert">*Please select a location and upload your resume.</span>
+      </div>
+
+      <!-- Dashed Gradient Upload Box -->
+      <div class="dropzone-wrapper" id="dropzone" tabindex="0" role="button" aria-label="Upload your resume as PDF or DOCX">
+        <svg class="dashed-border-svg" viewBox="0 0 700 240" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#F5AA4C" />
+              <stop offset="50%" stop-color="#DF6C51" />
+              <stop offset="100%" stop-color="#7B2843" />
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="692" height="232" rx="22" ry="22" fill="none" stroke="url(#dashGrad)" stroke-width="5" stroke-dasharray="14 10" />
+        </svg>
+
+        <div class="dropzone-content">
+          <div class="file-icons">
+            <!-- PDF Icon -->
+            <div class="doc-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>PDF</span>
+            </div>
+            <!-- DOCX Icon -->
+            <div class="doc-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>DOCX</span>
+            </div>
+          </div>
+
+          <p class="upload-label" id="fileNameDisplay">Upload PDF/Docx</p>
+          <input type="file" id="resumeInput" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="submit-btn" id="analyzeBtn">Find Matches</button>
+      </div>
+    </div>
+    <!-- Fallback: shown when the resume cannot be read (multi-column, scanned, wrong type...) -->
+    <div class="template-box" id="templateBox" role="alert">
+      <h2>We couldn't read that resume</h2>
+      <p id="templateMsg"></p>
+      <p>SkillMatch reads <strong>one-column</strong> resumes (PDF or DOCX) with standard sections. Download our sample template, replace the text with your own, and upload it again.</p>
+      <div class="template-actions">
+        <a class="submit-btn" id="templateLink" href="/templates/skillmatch-resume-template.docx" download>Download sample template (.docx)</a>
+        <button type="button" class="link-btn" id="tryAgainBtn">Try another file</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Page 5 Loading Screen -->
+  <section class="loading-overlay" id="loadingSection">
+    <div class="loader-box">
+      <div class="spinner-ring"></div>
+      <h2>SkillMatch is reading your file<span class="dots">....</span></h2>
+    </div>
+  </section>
+
+  <script>
+    // Removes the white background from the header logo.
+    // If the browser blocks canvas access (e.g. page opened via file://), the original logo is kept.
+    window.addEventListener('DOMContentLoaded', () => {
+      const img = document.getElementById('headerLogoImg');
+      const temp = new Image();
+      temp.onload = function () {
+        try {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = temp.width;
+          canvas.height = temp.height;
+          ctx.drawImage(temp, 0, 0);
+          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < imgData.data.length; i += 4) {
+            if (imgData.data[i] > 235 && imgData.data[i+1] > 235 && imgData.data[i+2] > 235) {
+              imgData.data[i + 3] = 0;
+            }
+          }
+          ctx.putImageData(imgData, 0, 0);
+          img.src = canvas.toDataURL('image/png');
+        } catch (e) { /* keep original logo */ }
+      };
+      temp.src = img.src;
+    });
+
+    const MAX_MB = 5;
+    const dropzone = document.getElementById('dropzone');
+    const resumeInput = document.getElementById('resumeInput');
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+    const locationSelect = document.getElementById('locationSelect');
+    const errorMsg = document.getElementById('errorMsg');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    const uploadSection = document.getElementById('uploadSection');
+    const loadingSection = document.getElementById('loadingSection');
+    const DEFAULT_LABEL = 'Upload PDF/Docx';
+
+    function showError(msg) {
+      errorMsg.textContent = msg;
+      errorMsg.style.display = 'inline-block';
+    }
+    function clearError() {
+      errorMsg.style.display = 'none';
+    }
+    function resetFile() {
+      resumeInput.value = '';
+      fileNameDisplay.textContent = DEFAULT_LABEL;
+    }
+    function handleFile(file) {
+      if (!file) return;
+      const ext = file.name.split('.').pop().toLowerCase();
+      if (ext !== 'pdf' && ext !== 'docx') {
+        resetFile();
+        showError('*Only PDF or DOCX files are supported.');
+        return;
+      }
+      if (file.size > MAX_MB * 1024 * 1024) {
+        resetFile();
+        showError('*File is too large. Maximum size is ' + MAX_MB + ' MB.');
+        return;
+      }
+      fileNameDisplay.textContent = file.name;
+      clearError();
+    }
+
+    dropzone.addEventListener('click', (e) => {
+      if (e.target === resumeInput) return;
+      resumeInput.click();
+    });
+    dropzone.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        resumeInput.click();
+      }
+    });
+    resumeInput.addEventListener('change', () => handleFile(resumeInput.files[0]));
+
+    ['dragenter', 'dragover'].forEach((evt) =>
+      dropzone.addEventListener(evt, (e) => { e.preventDefault(); dropzone.classList.add('dragging'); })
+    );
+    ['dragleave', 'drop'].forEach((evt) =>
+      dropzone.addEventListener(evt, (e) => { e.preventDefault(); dropzone.classList.remove('dragging'); })
+    );
+    dropzone.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        resumeInput.files = files;
+        handleFile(files[0]);
+      }
+    });
+
+    locationSelect.addEventListener('change', clearError);
+
+    const templateBox = document.getElementById('templateBox');
+    document.getElementById('tryAgainBtn').addEventListener('click', () => {
+      templateBox.style.display = 'none';
+      document.querySelector('.step-card').style.display = '';
+      resetFile();
+    });
+
+    analyzeBtn.addEventListener('click', async () => {
+      if (!locationSelect.value) { showError('*Please select a location.'); return; }
+      if (resumeInput.files.length === 0) { showError('*Please upload your resume (PDF or DOCX).'); return; }
+      clearError();
+      uploadSection.style.display = 'none';
+      loadingSection.style.display = 'flex';
+      const form = new FormData();
+      form.append('location', locationSelect.value);
+      form.append('resume', resumeInput.files[0]);
+      try {
+        const res = await fetch('/api/analyze', { method: 'POST', body: form });
+        const data = await res.json();
+        loadingSection.style.display = 'none';
+        uploadSection.style.display = '';
+        if (!res.ok) {
+          const err = data.error || {};
+          if (err.template) {   // resume could not be read: offer the sample template
+            document.getElementById('templateMsg').textContent = err.message || '';
+            document.querySelector('.step-card').style.display = 'none';
+            templateBox.style.display = 'block';
+          } else { showError('*' + (err.message || 'Something went wrong.')); }
+          return;
+        }
+        sessionStorage.setItem('skillmatch.result', JSON.stringify(data));   // this tab only; the server stores nothing
+        window.location.href = 'top 5 matches.html';
+      } catch (err) {
+        loadingSection.style.display = 'none';
+        uploadSection.style.display = '';
+        showError('*Cannot reach the SkillMatch server. Start it and open http://localhost:8080.');
+      }
+    });
+  </script>
+
+</body>
+</html>
