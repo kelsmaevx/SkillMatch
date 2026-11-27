@@ -114,8 +114,9 @@ class SkillGapSummarizer {
             GapItem i = new GapItem(); i.skill = x.getKey(); i.missingIn = x.getValue(); i.outOf = top.size(); i.advice = training.stepFor(x.getKey());
             g.items.add(i);
         }
-        g.summary = g.items.isEmpty() ? "You already have the skills listed for your top matches. Keep your projects and resume up to date."
-            : "Across your top " + top.size() + " matches, the skills missing most often are " + String.join(", ", g.items.stream().limit(3).map(i -> i.skill).toList())
+        g.summary = top.isEmpty() ? "There are no matches yet, so there are no skill gaps to show. Try another location or add more skills to your resume."
+        : g.items.isEmpty() ? "You already have the skills listed for your top matches. Keep your projects and resume up to date."
+        : "Across your top " +  top.size() + " matches, the skills missing most often are " + String.join(", ", g.items.stream().limit(3).map(i -> i.skill).toList())
               + ". Focusing on these first will raise your compatibility the most.";
         return g;
     }
