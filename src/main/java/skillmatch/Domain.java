@@ -69,8 +69,8 @@ class Profile {
     static String normEducation(String s) {
         String t = s == null ? "" : s.toLowerCase();
         if (t.matches(".*(doctor|ph\\.?d).*")) return "Doctorate";
-        if (t.matches(".*(master|m\\.?s\\.?c?\\b|mba).*")) return "Master's";
-        if (t.matches(".*(bachelor|b\\.?s\\.?c?\\b|college|undergrad|bs ).*")) return "Bachelor's";
+        if (t.matches(".*(master|\\bm\\.?s\\.?c?\\b|\\bmba\\b).*")) return "Master's";
+        if (t.matches(".*(bachelor|\\bb\\.?s\\.?c?\\b|college|undergrad).*")) return "Bachelor's";
         if (t.matches(".*(vocational|diploma|associate|tesda|technical).*")) return "Vocational";
         return "High School";
     }
