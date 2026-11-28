@@ -34,7 +34,6 @@ For the interests score, the number of matching interests is divided by the smal
 
 A profile location of `Any` receives location credit. A remote opportunity also receives location credit.
 
-Education labels are normalized to support common forms such as `Senior High School`, `Undergraduate`, `Bachelor's Degree`, `Master's Degree`, and `Doctorate`. Unknown education labels are not automatically treated as a degree level. If the opportunity does not specify a minimum education level, the education criterion receives full credit.
-
+Education labels are normalized to support common forms such as `Senior High School`, `Undergraduate`, `Bachelor's Degree`, `Master's Degree`, and `Doctorate`.
 
 
