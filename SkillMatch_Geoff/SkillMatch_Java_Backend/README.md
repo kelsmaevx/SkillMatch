@@ -32,7 +32,7 @@ The breakdown displays weighted points, not separate percentages. The five break
 
 For the interests score, the number of matching interests is divided by the smaller of three or the number of distinct tags attached to the opportunity.
 
-A profile location of `Any` receives location credit. A remote opportunity also receives location credit.
+A profile location of `Any` receives location credit, a remote opportunity also receives location credit.
 
 Education labels are normalized to support common forms such as `Senior High School`, `Undergraduate`, `Bachelor's Degree`, `Master's Degree`, and `Doctorate`.
 
